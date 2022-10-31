@@ -15,7 +15,7 @@ function Hero() {
 		);
 	}
 
-	if (params.productId) {
+	if (params.slug) {
 		return <></>;
 	}
 

@@ -9,11 +9,11 @@ const productReducer = (state, action) => {
 				...state,
 				products: action.payload,
 			};
-		// case 'SET_PRODUCT':
-		// 	return {
-		// 		...state,
-		// 		product: action.payload,
-		// 	};
+		case 'SET_PRODUCT':
+			return {
+				...state,
+				product: action.payload,
+			};
 		default:
 			return state;
 	}
@@ -22,6 +22,7 @@ const productReducer = (state, action) => {
 export const ProductContextProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(productReducer, {
 		products: null,
+		product: null,
 	});
 
 	useEffect(() => {

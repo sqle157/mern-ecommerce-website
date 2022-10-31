@@ -29,7 +29,7 @@ function App() {
 							<Route path='/' element={<MainContainer />}>
 								<Route index element={<Home />} />
 								<Route path=':category' element={<Category />} />
-								<Route path='products/:productId' element={<Product />} />
+								<Route path='products/:slug' element={<Product />} />
 								<Route path='*' element={<Navigate to='/' />} />
 							</Route>
 						</Routes>

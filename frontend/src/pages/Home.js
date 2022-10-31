@@ -1,13 +1,13 @@
 // Layouts Components
 import ProductCategories from '../components/Layouts/ProductCategories';
-import ProductPreview from '../components/Layouts/ProductPreview';
+import ProductsPreview from '../components/Layouts/ProductsPreview';
 import BestGear from '../components/Layouts/BestGear';
 
 function Home() {
 	return (
 		<div className='container'>
 			<ProductCategories />
-			<ProductPreview />
+			<ProductsPreview />
 			<BestGear />
 		</div>
 	);

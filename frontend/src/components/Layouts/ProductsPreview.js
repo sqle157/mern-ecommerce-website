@@ -7,7 +7,7 @@ import ZX9ImageMobile from '../../assets/home/mobile/image-speaker-zx9.png';
 // css
 import './ProductsPreview.scss';
 
-function ProductPreview() {
+function ProductsPreview() {
 	return (
 		<section id='product__preview'>
 			<div className='grid preview-container'>
@@ -57,4 +57,4 @@ function ProductPreview() {
 		</section>
 	);
 }
-export default ProductPreview;
+export default ProductsPreview;

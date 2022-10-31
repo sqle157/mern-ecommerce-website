@@ -1,8 +1,55 @@
+import { useState } from 'react';
+// components & icons
 import Button from './Button';
+import { FaPlus, FaMinus } from 'react-icons/fa';
 // Css
 import './ProductItem.scss';
 
-function ProductItem({ product, index }) {
+function ProductItem({ product, index, productPage }) {
+	const [productQuantity, setProductQuantity] = useState(1);
+
+	const handleMinusClick = () => {
+		setProductQuantity((quantity) => (quantity !== 1 ? quantity - 1 : 1));
+	};
+
+	const handlePlusClick = () => {
+		setProductQuantity((quantity) => quantity + 1);
+	};
+
+	if (productPage) {
+		return (
+			<div className='product-item flex'>
+				<div>
+					<picture>
+						<source media='(max-width: 50em)' srcSet={product.image.tablet} />
+						<source media='(max-width: 37.5em)' srcSet={product.image.mobile} />
+						<img src={product.image.desktop} alt='product' />
+					</picture>
+				</div>
+				<div className='product-intro'>
+					{product.new && <span>New Product</span>}
+					<h2>{product.name}</h2>
+					<p className='opacity-5'>{product.description}</p>
+					<h6>$ {new Intl.NumberFormat('en-US').format(product.price)}</h6>
+
+					<div className='product-action flex'>
+						<div className='flex'>
+							<FaMinus className='icon' onClick={handleMinusClick} />
+							<input
+								type='number'
+								value={productQuantity}
+								onChange={(e) => setProductQuantity(e.target.value)}
+							/>
+							<FaPlus className='icon' onClick={handlePlusClick} />
+						</div>
+
+						<Button className='btn btn-primary' text='Add to cart' />
+					</div>
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<div className={`product-item flex ${index === 1 ? 'flex-reverse' : ''}`}>
 			<div>

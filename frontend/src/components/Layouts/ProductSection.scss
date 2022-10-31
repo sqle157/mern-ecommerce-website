@@ -1,0 +1,15 @@
+.product {
+	&-container {
+		--gap: 0;
+		grid-template-columns: 1fr;
+		margin-top: 5rem;
+
+		a:not(.btn) {
+			font-size: 0.9375rem;
+			line-height: 25px;
+			font-weight: 500;
+			text-transform: capitalize;
+			margin-bottom: 3.5rem;
+		}
+	}
+}
