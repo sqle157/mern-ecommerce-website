@@ -1,0 +1,29 @@
+@use 'reset';
+@use 'abstract';
+@use 'typography';
+@use 'root';
+@use 'utils';
+
+body {
+	font-family: 'Manrope';
+	background-color: #ffffff;
+}
+
+.error {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10rem;
+
+	> * {
+		margin-bottom: 2rem;
+	}
+}
+
+.center {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

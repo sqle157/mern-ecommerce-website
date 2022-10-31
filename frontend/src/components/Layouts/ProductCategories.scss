@@ -1,0 +1,60 @@
+@use '../../sass/abstract' as *;
+
+section#products__categories {
+	.categories-container {
+		--gap: 1.875rem;
+		width: 100%;
+		grid-template-columns: repeat(3, 1fr);
+		margin-bottom: 10.5rem;
+		margin-top: 12.5rem;
+
+		@include mq(tablet) {
+			--gap: 0.625rem;
+			margin-block: 8rem 6rem;
+		}
+
+		@include mq(mobile) {
+			--gap: 6rem;
+			grid-template-columns: 1fr;
+			margin-bottom: 7.5rem;
+		}
+	}
+
+	.products {
+		&__category {
+			grid-template-columns: 1fr;
+			background-color: var(--clr-primary-300);
+			border-radius: 0.5rem;
+			padding-inline: clamp(1.5rem, 6vw, 6.78125rem);
+			height: 165px;
+
+			h6 {
+				margin-bottom: 0.9375rem;
+			}
+
+			&-wrapper {
+				--gap: 0;
+				grid-template-columns: 1fr;
+				place-items: center;
+				position: relative;
+				top: -55px;
+			}
+
+			&-image-wrapper {
+				height: 130px;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+
+		&__link {
+			--gap: 0.8325rem;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}

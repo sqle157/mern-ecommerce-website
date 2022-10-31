@@ -1,0 +1,22 @@
+.container {
+	width: min(1110px, 100% - 3rem);
+	margin-inline: auto;
+}
+
+.grid {
+	display: grid;
+	gap: var(--gap, 1rem);
+}
+
+.flex {
+	display: flex;
+	gap: var(--gap, 1rem);
+}
+
+.opacity-75 {
+	opacity: 0.75;
+}
+
+.opacity-5 {
+	opacity: 0.5;
+}

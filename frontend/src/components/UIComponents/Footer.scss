@@ -1,0 +1,99 @@
+@use '../../sass/abstract' as *;
+
+.footer {
+	background-color: var(--clr-primary-600);
+	padding-block: 4.6875rem 3rem;
+	position: relative;
+
+	@include mq(tablet) {
+		padding-block: 3.75rem 3rem;
+	}
+
+	span {
+		position: absolute;
+		top: 0;
+		display: block;
+		width: 6.3125rem;
+		height: 0.25rem;
+		background-color: var(--clr-primary-400);
+
+		@include mq(tablet) {
+			left: 50%;
+			translate: -50%;
+		}
+	}
+
+	&__header {
+		justify-content: space-between;
+		margin-bottom: 2.25rem;
+
+		@include mq(tablet) {
+			--gap: 2rem;
+			flex-direction: column;
+
+			.header__nav {
+				display: flex;
+			}
+		}
+
+		@include mq(mobile) {
+			--gap: 3rem;
+			justify-content: center;
+			align-items: center;
+
+			.header__nav {
+				--gap: 1rem;
+				flex-direction: column;
+			}
+		}
+	}
+
+	&__content {
+		& > * {
+			flex: 1;
+		}
+
+		p {
+			&:nth-child(1) {
+				margin-bottom: 3.5rem;
+			}
+
+			&:nth-child(2) {
+				font-weight: 700;
+			}
+
+			@include mq(mobile) {
+				text-align: center;
+			}
+		}
+
+		& > :nth-child(2) {
+			align-items: center;
+			justify-content: flex-end;
+
+			.icon {
+				cursor: pointer;
+				&:is(:hover, :focus-within) > path {
+					fill: var(--clr-primary-400);
+				}
+			}
+
+			@include mq(tablet) {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+			}
+
+			@include mq(mobile) {
+				margin-top: 3rem;
+				position: relative;
+				justify-content: center;
+			}
+		}
+
+		@include mq(tablet) {
+			flex-direction: column;
+			position: relative;
+		}
+	}
+}

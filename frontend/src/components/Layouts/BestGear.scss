@@ -1,0 +1,79 @@
+@use '../../sass/abstract' as *;
+
+section#best-gear {
+	margin-bottom: 12.5rem;
+
+	@include mq(tablet) {
+		margin-bottom: 6rem;
+	}
+
+	@include mq(mobile) {
+		margin-bottom: 7.5rem;
+	}
+
+	p {
+		color: var(--clr--300);
+	}
+
+	.best-gear__container {
+		--gap: 1.75rem;
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: 1fr;
+
+		@include mq(tablet) {
+			--gap: 4rem;
+			grid-template-columns: 1fr;
+		}
+
+		& > div:nth-child(1) {
+			max-width: 27.8125rem;
+			padding-block: 6rem;
+
+			h2 {
+				margin-bottom: 2rem;
+			}
+
+			span {
+				color: var(--clr-primary-400);
+			}
+
+			@include mq(tablet) {
+				max-width: 100%;
+				text-align: center;
+				padding-block: 0;
+				padding-inline: 6rem;
+				order: 2;
+
+				h2 {
+					max-width: 20ch;
+					margin-inline: auto;
+				}
+			}
+
+			@include mq(mobile) {
+				padding: 0;
+			}
+		}
+
+		& > div:nth-child(2) {
+			border-radius: 0.5rem;
+			background-image: url('../../assets/shared/desktop/image-best-gear.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			order: 1;
+
+			@include mq(tablet) {
+				background-image: url('../../assets/shared/tablet/image-best-gear.jpg');
+			}
+			// img {
+			// 	border-radius: 0.5rem;
+			// 	margin-left: auto;
+			// }
+
+			@include mq(tablet) {
+				background-image: url('../../assets/shared/mobile/image-best-gear.jpg');
+			}
+		}
+	}
+}

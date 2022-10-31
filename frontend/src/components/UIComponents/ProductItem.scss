@@ -1,0 +1,38 @@
+.product {
+	&-item {
+		--gap: 7.8125rem;
+		flex-wrap: wrap;
+		> * {
+			flex: 1 20rem;
+		}
+	}
+
+	&-intro {
+		max-width: 27.8125rem;
+		margin-block: auto;
+
+		span {
+			display: block;
+			font-weight: 400;
+			font-size: 0.875rem;
+			line-height: 19px;
+			letter-spacing: 10px;
+			text-transform: uppercase;
+			margin-bottom: 1rem;
+			color: var(--clr-primary-400);
+		}
+
+		h2 {
+			max-width: 15ch;
+		}
+
+		p {
+			margin-block: 2rem 2.5rem;
+			color: var(--clr-neutral-300);
+		}
+	}
+}
+
+.flex-reverse {
+	flex-direction: row-reverse;
+}

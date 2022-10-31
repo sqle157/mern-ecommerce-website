@@ -1,0 +1,19 @@
+@use '../abstract' as *;
+
+:root {
+	@each $color, $shades in $colors {
+		@each $shade, $value in $shades {
+			--clr-#{$color}-#{$shade}: #{$value};
+		}
+	}
+
+	@each $weight in $font-weight {
+		--fw-#{$weight}: #{$weight};
+	}
+
+	@each $spacing, $spaces in $letter-spacing {
+		@each $prop, $space in $spaces {
+			--letter-#{$spacing}-#{$prop}: #{$space};
+		}
+	}
+}

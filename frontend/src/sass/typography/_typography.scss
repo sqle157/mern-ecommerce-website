@@ -1,0 +1,98 @@
+@use 'formula' as *;
+
+/* 
+------------------------------- HEADINGS ---------------------------
+*/
+
+h1 {
+	font-size: clamp(
+		2.25rem,
+		calc-preferred-viewport(2.25, 3.5) + calcl-preferred-rem(2.25, 3.5),
+		3.5rem
+	);
+	font-weight: var(--fw-700);
+	line-height: 1.05;
+	letter-spacing: var(--letter-spacing-500);
+	color: var(--clr-neutral-300);
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: clamp(
+		1.75rem,
+		calc-preferred-viewport(1.75, 2.5) + calcl-preferred-rem(1.75, 2.5),
+		2.5rem
+	);
+	font-weight: var(--fw-700);
+	line-height: 1.1;
+	letter-spacing: var(--letter-spacing-300);
+	color: var(--clr-neutral-300);
+	text-transform: uppercase;
+}
+
+h3 {
+	font-size: clamp(
+		1.5rem,
+		calc-preferred-viewport(1.5, 2) + calcl-preferred-rem(1.5, 2),
+		2rem
+	);
+	font-weight: var(--fw-700);
+	line-height: 1.125;
+	letter-spacing: var(--letter-spacing-100);
+	color: var(--clr-neutral-300);
+	text-transform: uppercase;
+}
+
+h4 {
+	font-size: 1.75rem;
+	font-weight: var(--fw-700);
+	line-height: 1.35;
+	letter-spacing: var(--letter-spacing-500);
+	color: var(--clr-neutral-300);
+	text-transform: uppercase;
+}
+
+h5 {
+	font-size: 1.5rem;
+	font-weight: var(--fw-700);
+	line-height: 1.375;
+	letter-spacing: var(--letter-spacing-400);
+	color: var(--clr-neutral-300);
+	text-transform: uppercase;
+}
+
+h6 {
+	font-size: clamp(
+		0.9375rem,
+		calc-preferred-viewport(0.9375, 1.125) + calcl-preferred-rem(0.9375, 1.125),
+		1.125rem
+	);
+	font-weight: var(--fw-700);
+	line-height: 1.375;
+	letter-spacing: var(--letter-spacing-200);
+	color: var(--clr-neutral-300);
+	text-transform: uppercase;
+}
+
+/* 
+------------------------------- PARAGRAPH ---------------------------
+*/
+
+p {
+	font-size: 0.9375rem;
+	line-height: 25px;
+	font-weight: var(--fw-500);
+	color: var(--clr-neutral-100);
+}
+
+/* 
+------------------------------- LINKS ---------------------------
+*/
+
+a {
+	font-size: 0.8125rem;
+	line-height: 18px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: var(--clr-neutral-300);
+}

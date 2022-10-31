@@ -1,0 +1,33 @@
+/* 
+  The math are done accodring to the formula provided by the links below
+  - https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+  - https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/
+
+  Steps:
+  - Set the max and min viewport widths
+  - The font size stops growing when the viewport width is at max and stops shrinking at min width
+  - Calculate the preferred value according to the formula
+*/
+
+$min-width: 600;
+$max-width: 1400;
+
+@function calc-preferred-viewport($min-font-size, $max-font-size) {
+	// Calculate preferred value
+	$preferred-viewport: calc(
+		(100 * ($max-font-size * 16 - $min-font-size * 16)) /
+			($max-width - $min-width)
+	);
+
+	@return #{$preferred-viewport}vw;
+}
+
+@function calcl-preferred-rem($min-font-size, $max-font-size) {
+	// Calculate preferred value
+	$preferred-rem: calc(
+		($min-width * $max-font-size * 16 - $max-width * $min-font-size * 16) /
+			($min-width - $max-width)
+	);
+
+	@return #{calc($preferred-rem / 16)}rem;
+}

@@ -1,0 +1,46 @@
+.btn {
+	cursor: pointer;
+	display: grid;
+	place-items: center;
+	width: 10rem;
+	aspect-ratio: 3.33 / 1;
+	color: var(--clr-neutral-100);
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 0.8125rem;
+	line-height: 18px;
+	letter-spacing: 1px;
+
+	a {
+		color: inherit;
+	}
+
+	&-primary {
+		background-color: var(--clr-primary-400);
+
+		&:is(:hover, :focus-within) {
+			background-color: var(--clr-neutral-400);
+		}
+	}
+
+	&-neutral-300 {
+		background-color: var(--clr-neutral-300);
+
+		&:is(:hover, :focus-within) {
+			background-color: var(--clr-neutral-100);
+			border: 1px solid var(--clr-neutral-300);
+			color: var(--clr-neutral-300);
+		}
+	}
+
+	&-neutral-100 {
+		background-color: transparent;
+		border: 1px solid var(--clr-neutral-300);
+		color: var(--clr-neutral-300);
+
+		&:is(:hover, :focus-within) {
+			background-color: var(--clr-neutral-300);
+			color: var(--clr-neutral-100);
+		}
+	}
+}

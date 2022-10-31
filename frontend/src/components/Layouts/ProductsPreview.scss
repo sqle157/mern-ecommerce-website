@@ -1,0 +1,153 @@
+@use '../../sass/abstract' as *;
+
+section#product__preview {
+	.preview-container {
+		--gap: 3rem 1.875rem;
+		grid-auto-columns: 1fr;
+		grid-template-areas:
+			'zx9 zx9'
+			'zx7 zx7'
+			'yx1-image yx1';
+
+		margin-bottom: 12.5rem;
+
+		@include mq(tablet) {
+			--gap: 2rem 0.6875rem;
+		}
+
+		@include mq(mobile) {
+			grid-template-areas:
+				'zx9'
+				'zx7'
+				'yx1-image'
+				'yx1';
+
+			margin-bottom: 7.5rem;
+		}
+	}
+
+	.preview {
+		&:nth-child(1) {
+			--gap: clamp(2rem, 10vw, 8.3125rem);
+			grid-area: zx9;
+			background-color: var(--clr-primary-400);
+			background-image: url('../../assets/home/desktop/pattern-circles.svg');
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-position: top -0.85rem left -12.5rem;
+			border-radius: 0.5rem;
+			padding: clamp(1.5rem, 5.5vw, 6rem);
+			align-items: center;
+			justify-content: flex-end;
+			overflow: hidden;
+
+			.image-wrapper {
+				width: 410px;
+				position: relative;
+				margin-bottom: -6rem;
+			}
+
+			.preview-intro {
+				max-width: 36ch;
+				align-self: center;
+			}
+
+			@include mq(tablet) {
+				background-position: center top -15rem;
+				background-size: 100%;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding-block: 4rem;
+
+				.image-wrapper {
+					width: 37%;
+					margin-bottom: 0.75rem;
+				}
+
+				.preview-intro {
+					text-align: center;
+				}
+
+				.btn {
+					margin-inline: auto;
+				}
+			}
+
+			@include mq(tablet) {
+				background-position: center top;
+			}
+		}
+
+		&:nth-child(2) {
+			grid-area: zx7;
+			padding: 6rem;
+			background-image: url('../../assets/home/desktop/image-speaker-zx7.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			border-radius: 0.5rem;
+
+			@include mq(tablet) {
+				background-image: url('../../assets/home/tablet/image-speaker-zx7.jpg');
+				padding-inline: 3.75rem;
+			}
+
+			@include mq(mobile) {
+				background-image: url('../../assets/home/mobile/image-speaker-zx7.jpg');
+				background-size: cover;
+				padding-inline: 2rem;
+			}
+		}
+
+		&:nth-child(3) {
+			grid-area: yx1-image;
+			border-radius: 0.5rem;
+			overflow: hidden;
+			background-image: url('../../assets/home/desktop/image-earphones-yx1.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+
+			@include mq(tablet) {
+				background-image: url('../../assets/home/tablet/image-earphones-yx1.jpg');
+			}
+
+			@include mq(mobile) {
+				height: 200px;
+				background-image: url('../../assets/home/mobile/image-earphones-yx1.jpg');
+			}
+		}
+
+		&:nth-child(4) {
+			grid-area: yx1;
+			display: flex;
+			background-color: var(--clr-primary-300);
+			padding-inline: clamp(1.5rem, 7vw, 6rem);
+			padding-block: clamp(2.5rem, 7vw, 6rem);
+			border-radius: 0.5rem;
+
+			@include mq(tablet) {
+				.preview-intro {
+					margin-block: auto;
+				}
+			}
+		}
+
+		&-intro {
+			h1 {
+				color: var(--clr-neutral-100);
+			}
+
+			h4 {
+				margin-bottom: 2rem;
+			}
+
+			p {
+				margin-block: 1.5rem 2.5rem;
+			}
+
+			// @include mq(tablet) {
+			// 	width: 15.4375rem;
+			// }
+		}
+	}
+}

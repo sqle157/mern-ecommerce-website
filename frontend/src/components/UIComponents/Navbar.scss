@@ -1,0 +1,59 @@
+@use '../../sass/abstract' as *;
+
+.header {
+	background-color: #0e0e0e;
+
+	&--background {
+		background-image: url('../../assets/home/desktop/image-hero.jpg');
+		background-repeat: no-repeat;
+
+		@include mq(tablet) {
+			background-image: url('../../assets/home/tablet/image-header.jpg');
+			background-position: center;
+			background-size: cover;
+		}
+
+		@include mq(mobile) {
+			background-image: url('../../assets/home/mobile/image-header.jpg');
+		}
+	}
+
+	&__navbar {
+		align-items: center;
+		justify-content: space-between;
+		padding-block: 2rem 2.25rem;
+		border-bottom: 1px solid hsl(0 0% 100% / 0.2);
+	}
+
+	&__nav {
+		--gap: 2.125rem;
+		align-items: center;
+
+		@include mq(tablet) {
+			display: none;
+		}
+
+		a {
+			color: var(--clr-neutral-100);
+			font-size: 0.8125rem;
+			line-height: 25px;
+			letter-spacing: var(--letter-spacing-500);
+			text-transform: uppercase;
+
+			&:is(:hover, :focus-within) {
+				color: var(--clr-primary-400);
+			}
+		}
+	}
+}
+
+.menu-burger {
+	cursor: pointer;
+	display: none;
+	align-self: center;
+	margin-right: 1.625rem;
+
+	@include mq(tablet) {
+		display: block;
+	}
+}

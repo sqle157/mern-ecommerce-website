@@ -1,0 +1,48 @@
+@use '../../sass/abstract' as *;
+
+.header {
+	&__hero {
+		max-width: 24.875rem;
+		padding-block: 8rem 10rem;
+
+		h1 {
+			margin-block: 1.5rem;
+			max-width: 20ch;
+			color: var(--clr-neutral-100);
+		}
+
+		h2 {
+			color: var(--clr-neutral-100);
+		}
+
+		p {
+			&.opacity-75 {
+				max-width: 40ch;
+			}
+		}
+
+		.overline {
+			color: var(--clr-neutral-100);
+			opacity: 0.5;
+		}
+
+		.btn {
+			margin-top: 2.5rem;
+		}
+
+		@include mq(tablet) {
+			margin-inline: auto;
+			text-align: center;
+
+			.btn {
+				margin-inline: auto;
+			}
+		}
+	}
+
+	&__hero--center {
+		padding-block: 6.125rem;
+		margin-inline: auto;
+		text-align: center;
+	}
+}
