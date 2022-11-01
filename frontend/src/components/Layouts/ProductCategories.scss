@@ -1,22 +1,29 @@
 @use '../../sass/abstract' as *;
 
 section#products__categories {
+	margin-bottom: 10.5rem;
+	margin-top: 12.5rem;
+
+	@include mq(tablet) {
+		margin-block: 8rem 6rem;
+	}
+
+	@include mq(mobile) {
+		margin-bottom: 7.5rem;
+	}
+
 	.categories-container {
 		--gap: 1.875rem;
 		width: 100%;
 		grid-template-columns: repeat(3, 1fr);
-		margin-bottom: 10.5rem;
-		margin-top: 12.5rem;
 
 		@include mq(tablet) {
 			--gap: 0.625rem;
-			margin-block: 8rem 6rem;
 		}
 
 		@include mq(mobile) {
 			--gap: 6rem;
 			grid-template-columns: 1fr;
-			margin-bottom: 7.5rem;
 		}
 	}
 

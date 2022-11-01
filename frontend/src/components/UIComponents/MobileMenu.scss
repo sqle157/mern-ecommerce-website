@@ -1,0 +1,24 @@
+@use '../../sass/abstract' as *;
+
+.overlay--menu {
+	top: 5.625rem;
+	height: calc(100vh - 5.625rem);
+	overflow-y: scroll;
+}
+
+.navbar__mobile {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: var(--clr-neutral-100);
+
+	section#products__categories {
+		margin-block: 0;
+		padding-block: 4.5rem 3.5rem;
+
+		@include mq(mobile) {
+			padding-block: 4.5rem 2rem;
+		}
+	}
+}

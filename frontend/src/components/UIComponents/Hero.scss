@@ -41,7 +41,7 @@
 	}
 
 	&__hero--center {
-		padding-block: 6.125rem;
+		padding-block: clamp(2.5rem, 9vw, 6.125rem);
 		margin-inline: auto;
 		text-align: center;
 	}

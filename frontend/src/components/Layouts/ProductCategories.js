@@ -9,7 +9,12 @@ import SpeakersCategory from '../../assets/shared/desktop/image-category-thumbna
 // css
 import './ProductCategories.scss';
 
-function ProductCategories() {
+function ProductCategories({ setOpenMenu, mobileMenu }) {
+	const handleLinkClick = () => {
+		mobileMenu && setOpenMenu(false);
+		window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+	};
+
 	return (
 		<section id='products__categories'>
 			<div className='grid categories-container'>
@@ -21,9 +26,7 @@ function ProductCategories() {
 						<h6>Headphones</h6>
 						<Link
 							to='/headphones'
-							onClick={() =>
-								window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-							}
+							onClick={handleLinkClick}
 							className='opacity-5 products__link flex'>
 							SHOP{' '}
 							<svg width='8' height='12' xmlns='http://www.w3.org/2000/svg'>
@@ -46,9 +49,7 @@ function ProductCategories() {
 						<h6>Speakers</h6>
 						<Link
 							to='/speakers'
-							onClick={() =>
-								window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-							}
+							onClick={handleLinkClick}
 							className='opacity-5 products__link flex'>
 							SHOP{' '}
 							<svg width='8' height='12' xmlns='http://www.w3.org/2000/svg'>
@@ -71,9 +72,7 @@ function ProductCategories() {
 						<h6>Earphones</h6>
 						<Link
 							to='/earphones'
-							onClick={() =>
-								window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-							}
+							onClick={handleLinkClick}
 							className='opacity-5 products__link flex'>
 							SHOP{' '}
 							<svg width='8' height='12' xmlns='http://www.w3.org/2000/svg'>

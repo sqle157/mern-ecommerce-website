@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 // icons & images
 import Logo from '../../assets/shared/desktop/logo.svg';
@@ -5,25 +6,41 @@ import CartIcon from '../../assets/shared/desktop/icon-cart.svg';
 import BurgerIcon from '../../assets/shared/tablet/icon-hamburger.svg';
 // components
 import Hero from './Hero';
+import MobileMenu from './MobileMenu';
+import Cart from './Cart';
 // css
 import './Navbar.scss';
 
 function Navbar() {
+	const [openMenu, setOpenMenu] = useState(false);
+	const [openCart, setOpenCart] = useState(false);
 	const location = useLocation();
+
+	useEffect(() => {
+		document.body.style.overflow = openMenu ? 'hidden' : '';
+	}, [openMenu]);
+
+	const handleMenuClick = () => {
+		setOpenMenu((prevState) => !prevState);
+	};
 
 	return (
 		<header
 			className={`header ${
 				location.pathname === '/' ? 'header--background' : ''
 			}`}>
+			{openMenu && <MobileMenu setOpenMenu={setOpenMenu} />}
 			<div className='container'>
 				<div className='flex header__navbar'>
-					<div className='flex'>
-						<img className='menu-burger' src={BurgerIcon} alt='' />
-						<Link to='/'>
-							<img src={Logo} alt='logo' />
-						</Link>
-					</div>
+					<img
+						className='menu-burger'
+						src={BurgerIcon}
+						alt=''
+						onClick={handleMenuClick}
+					/>
+					<Link to='/'>
+						<img src={Logo} alt='logo' />
+					</Link>
 					<nav>
 						<ul className='flex header__nav'>
 							<li>
@@ -65,11 +82,17 @@ function Navbar() {
 						</ul>
 					</nav>
 					<div>
-						<img src={CartIcon} alt='' />
+						<img
+							className='cart-icon'
+							src={CartIcon}
+							alt=''
+							onClick={() => setOpenCart((prevState) => !prevState)}
+						/>
 					</div>
 				</div>
 
 				<Hero />
+				{openCart && <Cart />}
 			</div>
 		</header>
 	);
