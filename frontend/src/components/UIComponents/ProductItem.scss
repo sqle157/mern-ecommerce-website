@@ -1,9 +1,9 @@
 .product {
 	&-item {
 		--gap: 7.8125rem;
-		flex-wrap: wrap;
+
 		> * {
-			flex: 1 20rem;
+			flex: 1;
 		}
 
 		img {

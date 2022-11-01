@@ -17,7 +17,7 @@
 		height: 0.25rem;
 		background-color: var(--clr-primary-400);
 
-		@include mq(tablet) {
+		@include mq(mobile) {
 			left: 50%;
 			translate: -50%;
 		}

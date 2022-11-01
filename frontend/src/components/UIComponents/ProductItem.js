@@ -54,9 +54,15 @@ function ProductItem({ product, index, productPage }) {
 		<div className={`product-item flex ${index === 1 ? 'flex-reverse' : ''}`}>
 			<div>
 				<picture>
-					<source media='(max-width: 50em)' srcSet={product.image.tablet} />
-					<source media='(max-width: 37.5em)' srcSet={product.image.mobile} />
-					<img src={product.image.desktop} alt='product' />
+					<source
+						media='(max-width: 50em)'
+						srcSet={product.categoryImage.tablet}
+					/>
+					<source
+						media='(max-width: 37.5em)'
+						srcSet={product.categoryImage.mobile}
+					/>
+					<img src={product.categoryImage.desktop} alt='product' />
 				</picture>
 			</div>
 			<div className='product-intro'>

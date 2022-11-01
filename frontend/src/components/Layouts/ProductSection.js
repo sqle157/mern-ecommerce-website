@@ -8,8 +8,6 @@ import './ProductSection.scss';
 function ProductSection() {
 	const { product } = useProductContext();
 
-	console.log(product);
-
 	const navigate = useNavigate();
 
 	const handleClick = () => {

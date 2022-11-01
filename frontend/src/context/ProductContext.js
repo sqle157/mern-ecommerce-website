@@ -34,8 +34,6 @@ export const ProductContextProvider = ({ children }) => {
 			if (response.ok) {
 				dispatch({ type: 'SET_PRODUCTS', payload: data });
 			}
-
-			console.log(data);
 		};
 
 		fetchProducts();
