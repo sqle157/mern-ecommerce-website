@@ -1,3 +1,5 @@
+@use '../../sass/abstract' as *;
+
 .product {
 	&-container {
 		--gap: 0;
@@ -10,6 +12,34 @@
 			font-weight: 500;
 			text-transform: capitalize;
 			margin-bottom: 3.5rem;
+		}
+
+		@include mq(tablet) {
+			margin-top: 2.0625rem;
+
+			.product-item {
+				--gap: 4rem;
+			}
+
+			a:not(.btn) {
+				margin-bottom: 1.5rem;
+			}
+		}
+
+		@include mq(mobile) {
+			margin-top: 1rem;
+
+			.product-item {
+				flex-direction: column;
+
+				& > :nth-child(1) {
+					img {
+						width: 100%;
+						aspect-ratio: 1 / 1;
+						object-fit: cover;
+					}
+				}
+			}
 		}
 	}
 }

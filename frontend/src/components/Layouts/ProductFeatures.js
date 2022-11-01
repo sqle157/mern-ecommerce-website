@@ -22,12 +22,14 @@ function ProductFeatures() {
 					</div>
 					<div>
 						<h3>In The Box</h3>
-						{product.includes.map((include, index) => (
-							<p key={index} className='text-caps'>
-								<span className='opacity-1'>{include.quantity}x</span>
-								<span className='opacity-5'>{include.item}</span>
-							</p>
-						))}
+						<div>
+							{product.includes.map((include, index) => (
+								<p key={index} className='text-caps'>
+									<span className='opacity-1'>{include.quantity}x</span>
+									<span className='opacity-5'>{include.item}</span>
+								</p>
+							))}
+						</div>
 					</div>
 				</div>
 			</section>
