@@ -9,7 +9,7 @@ function ProductOthers() {
 
 	return (
 		product && (
-			<section>
+			<section id='others'>
 				<div className='product-others grid'>
 					<h3>You May Also Like</h3>
 					{product.others.map((other, index) => (

@@ -9,6 +9,7 @@ import LoadingSpinner from './components/UIComponents/LoadingSpinner';
 const Home = lazy(() => import('./pages/Home'));
 const Category = lazy(() => import('./pages/Category'));
 const Product = lazy(() => import('./pages/Product'));
+const Checkout = lazy(() => import('./pages/Checkout'));
 
 function App() {
 	useEffect(() => {
@@ -30,6 +31,7 @@ function App() {
 								<Route index element={<Home />} />
 								<Route path=':category' element={<Category />} />
 								<Route path='products/:slug' element={<Product />} />
+								<Route path='checkout' element={<Checkout />} />
 								<Route path='*' element={<Navigate to='/' />} />
 							</Route>
 						</Routes>

@@ -9,7 +9,7 @@ function ProductFeatures() {
 
 	return (
 		product && (
-			<section>
+			<section id='features'>
 				<div className='product-features grid'>
 					<div>
 						<h3>Features</h3>

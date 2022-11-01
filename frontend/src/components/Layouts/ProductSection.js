@@ -16,7 +16,7 @@ function ProductSection() {
 
 	return (
 		product && (
-			<section>
+			<section id='product'>
 				<div className='grid product-container'>
 					<Link className='opacity-5' onClick={handleClick}>
 						Go Back

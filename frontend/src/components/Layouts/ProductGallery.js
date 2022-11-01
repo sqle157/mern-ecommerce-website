@@ -7,7 +7,7 @@ function ProductGallery() {
 
 	return (
 		product && (
-			<section>
+			<section id='gallery'>
 				<div className='product-gallery grid'>
 					<div>
 						<div className='product-gallery__image'>

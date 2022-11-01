@@ -1,42 +1,49 @@
 @use '../../sass/abstract' as *;
 
-.product {
-	&-container {
-		--gap: 0;
-		grid-template-columns: 1fr;
-		margin-top: 5rem;
+section#product {
+	margin-top: 5rem;
 
-		a:not(.btn) {
-			font-size: 0.9375rem;
-			line-height: 25px;
-			font-weight: 500;
-			text-transform: capitalize;
-			margin-bottom: 3.5rem;
-		}
+	@include mq(tablet) {
+		margin-top: 2.0625rem;
+	}
 
-		@include mq(tablet) {
-			margin-top: 2.0625rem;
+	@include mq(mobile) {
+		margin-top: 1rem;
+	}
 
-			.product-item {
-				--gap: 4rem;
-			}
+	.product {
+		&-container {
+			--gap: 0;
+			grid-template-columns: 1fr;
 
 			a:not(.btn) {
-				margin-bottom: 1.5rem;
+				font-size: 0.9375rem;
+				line-height: 25px;
+				font-weight: 500;
+				text-transform: capitalize;
+				margin-bottom: 3.5rem;
 			}
-		}
 
-		@include mq(mobile) {
-			margin-top: 1rem;
+			@include mq(tablet) {
+				.product-item {
+					--gap: 4rem;
+				}
 
-			.product-item {
-				flex-direction: column;
+				a:not(.btn) {
+					margin-bottom: 1.5rem;
+				}
+			}
 
-				& > :nth-child(1) {
-					img {
-						width: 100%;
-						aspect-ratio: 1 / 1;
-						object-fit: cover;
+			@include mq(mobile) {
+				.product-item {
+					flex-direction: column;
+
+					& > :nth-child(1) {
+						img {
+							width: 100%;
+							aspect-ratio: 1 / 1;
+							object-fit: cover;
+						}
 					}
 				}
 			}

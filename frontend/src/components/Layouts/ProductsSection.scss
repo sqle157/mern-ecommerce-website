@@ -1,39 +1,47 @@
 @use '../../sass/abstract' as *;
 
-.products {
-	&-container {
-		grid-template-columns: 1fr;
-		row-gap: 10rem;
-		margin-top: 10rem;
-		margin-bottom: 18rem;
+section#products {
+	margin-top: 10rem;
+	margin-bottom: 18rem;
 
-		@include mq(tablet) {
-			margin-top: 7.5rem;
-			margin-bottom: 12rem;
-			row-gap: 7.5rem;
+	@include mq(tablet) {
+		margin-top: 7.5rem;
+		margin-bottom: 12rem;
+	}
 
-			.product-item {
-				--gap: 3.25rem;
-				flex-direction: column;
-				align-items: center;
-			}
+	@include mq(mobile) {
+		margin-top: 4rem;
+	}
 
-			.product-intro {
-				max-width: 100%;
-				padding-inline: 3.75rem;
-				text-align: center;
+	.products {
+		&-container {
+			grid-template-columns: 1fr;
+			row-gap: 10rem;
 
-				& > * {
-					margin-inline: auto;
+			@include mq(tablet) {
+				row-gap: 7.5rem;
+
+				.product-item {
+					--gap: 3.25rem;
+					flex-direction: column;
+					align-items: center;
+				}
+
+				.product-intro {
+					max-width: 100%;
+					padding-inline: 3.75rem;
+					text-align: center;
+
+					& > * {
+						margin-inline: auto;
+					}
 				}
 			}
-		}
 
-		@include mq(mobile) {
-			margin-top: 4rem;
-
-			.product-intro {
-				padding: 0;
+			@include mq(mobile) {
+				.product-intro {
+					padding: 0;
+				}
 			}
 		}
 	}

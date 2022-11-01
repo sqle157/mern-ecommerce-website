@@ -1,6 +1,12 @@
 @use '../../sass/abstract' as *;
 
 section#product__preview {
+	margin-bottom: 12.5rem;
+
+	@include mq(mobile) {
+		margin-bottom: 7.5rem;
+	}
+
 	.preview-container {
 		--gap: 3rem 1.875rem;
 		grid-auto-columns: 1fr;
@@ -8,8 +14,6 @@ section#product__preview {
 			'zx9 zx9'
 			'zx7 zx7'
 			'yx1-image yx1';
-
-		margin-bottom: 12.5rem;
 
 		@include mq(tablet) {
 			--gap: 2rem 0.6875rem;
@@ -21,8 +25,6 @@ section#product__preview {
 				'zx7'
 				'yx1-image'
 				'yx1';
-
-			margin-bottom: 7.5rem;
 		}
 	}
 
@@ -144,10 +146,6 @@ section#product__preview {
 			p {
 				margin-block: 1.5rem 2.5rem;
 			}
-
-			// @include mq(tablet) {
-			// 	width: 15.4375rem;
-			// }
 		}
 	}
 }

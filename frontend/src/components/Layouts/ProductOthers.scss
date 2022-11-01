@@ -1,54 +1,60 @@
 @use '../../sass/abstract' as *;
 
-.product {
-	&-others {
-		--gap: 0 1.875rem;
-		grid-template-columns: repeat(3, 1fr);
-		margin-top: 10rem;
+section#others {
+	margin-top: 10rem;
 
-		h3 {
-			grid-column: 1 / -1;
-			justify-self: center;
-			margin-bottom: 4rem;
-		}
-
-		@include mq(mobile) {
-			grid-template-columns: 1fr;
-			margin-top: 7.5rem;
-
-			h3 {
-				margin-bottom: 2.5rem;
-			}
-		}
+	@include mq(mobile) {
+		margin-top: 7.5rem;
 	}
 
-	&-other {
-		text-align: center;
+	.product {
+		&-others {
+			--gap: 0 1.875rem;
+			grid-template-columns: repeat(3, 1fr);
 
-		> * {
-			margin-inline: auto;
-		}
-
-		img {
-			border-radius: 0.5rem;
-		}
-
-		h5 {
-			margin-block: 2.5rem 2rem;
-		}
-
-		@include mq(mobile) {
-			margin-bottom: 3.5rem;
-
-			& > :nth-child(1) {
-				height: 7.5rem;
-				background-color: var(--clr-primary-300);
+			h3 {
+				grid-column: 1 / -1;
+				justify-self: center;
+				margin-bottom: 4rem;
 			}
 
-			picture {
-				width: 5rem;
-				height: 100%;
+			@include mq(mobile) {
+				grid-template-columns: 1fr;
+
+				h3 {
+					margin-bottom: 2.5rem;
+				}
+			}
+		}
+
+		&-other {
+			text-align: center;
+
+			> * {
 				margin-inline: auto;
+			}
+
+			img {
+				border-radius: 0.5rem;
+			}
+
+			h5 {
+				margin-block: 2.5rem 2rem;
+			}
+
+			@include mq(mobile) {
+				margin-bottom: 3.5rem;
+
+				& > :nth-child(1) {
+					height: 7.5rem;
+					background-color: var(--clr-primary-300);
+				}
+
+				picture {
+					width: 5rem;
+					height: 100%;
+					margin-inline: auto;
+				}
 			}
 		}
 	}

@@ -22,7 +22,7 @@ function Products({ category }) {
 	}
 
 	return (
-		<section>
+		<section id='products'>
 			<div className='grid products-container'>
 				{productsList &&
 					productsList
