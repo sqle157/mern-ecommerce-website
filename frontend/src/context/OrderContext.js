@@ -16,6 +16,7 @@ const orderReducer = (state, action) => {
 			);
 
 			if (existingOrder) {
+				// update the order list if there is existing item
 				newOrders = state.orders.map((order) => {
 					if (order.id === action.payload.id) {
 						order = {
@@ -52,6 +53,9 @@ const orderReducer = (state, action) => {
 
 				return order;
 			});
+
+			localStorage.setItem('order', JSON.stringify(newOrders));
+
 			return {
 				orders: [...newOrders],
 			};
