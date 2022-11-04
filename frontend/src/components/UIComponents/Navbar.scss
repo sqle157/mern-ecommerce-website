@@ -80,6 +80,27 @@
 	}
 }
 
-.cart-icon {
-	cursor: pointer;
+.icon-wrapper {
+	position: relative;
+}
+
+.cart {
+	&-icon {
+		cursor: pointer;
+	}
+
+	&-basket {
+		position: absolute;
+		top: -6px;
+		right: -5px;
+		width: 16px;
+		height: 16px;
+		display: grid;
+		place-items: center;
+		font-size: 0.6rem;
+		font-weight: 700;
+		color: #fff;
+		background-color: var(--clr-primary-400);
+		border-radius: 50%;
+	}
 }

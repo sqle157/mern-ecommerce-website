@@ -1,4 +1,5 @@
 import { createContext, useReducer, useEffect } from 'react';
+import { useHttpHook } from '../hooks/useHttpHook';
 
 export const ProductContext = createContext();
 
@@ -24,20 +25,17 @@ export const ProductContextProvider = ({ children }) => {
 		products: null,
 		product: null,
 	});
+	const { sendRequest } = useHttpHook();
 
 	useEffect(() => {
 		const fetchProducts = async () => {
-			const response = await fetch('/api/products');
+			const data = await sendRequest('/api/products');
 
-			const data = await response.json();
-
-			if (response.ok) {
-				dispatch({ type: 'SET_PRODUCTS', payload: data });
-			}
+			dispatch({ type: 'SET_PRODUCTS', payload: data });
 		};
 
 		fetchProducts();
-	}, []);
+	}, [sendRequest]);
 
 	return (
 		<ProductContext.Provider value={{ ...state, dispatch }}>

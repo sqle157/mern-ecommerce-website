@@ -9,6 +9,10 @@ const productSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	shortName: {
+		type: String,
+		required: true,
+	},
 	image: {
 		mobile: String,
 		tablet: String,

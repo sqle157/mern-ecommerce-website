@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useOrderContext } from '../../hooks/useOrderContext';
 // icons & images
 import Logo from '../../assets/shared/desktop/logo.svg';
 import CartIcon from '../../assets/shared/desktop/icon-cart.svg';
@@ -14,13 +15,15 @@ import './Navbar.scss';
 function Navbar() {
 	const [openMenu, setOpenMenu] = useState(false);
 	const [openCart, setOpenCart] = useState(false);
+	const { orders } = useOrderContext();
 	const location = useLocation();
 
 	useEffect(() => {
-		document.body.style.overflow = openMenu ? 'hidden' : '';
-	}, [openMenu]);
+		document.body.style.overflow = openMenu || openCart ? 'hidden' : '';
+	}, [openMenu, openCart]);
 
 	const handleMenuClick = () => {
+		setOpenCart(false);
 		setOpenMenu((prevState) => !prevState);
 	};
 
@@ -38,7 +41,7 @@ function Navbar() {
 						alt=''
 						onClick={handleMenuClick}
 					/>
-					<Link to='/'>
+					<Link to='/' onClick={() => setOpenCart(false)}>
 						<img src={Logo} alt='logo' />
 					</Link>
 					<nav>
@@ -81,18 +84,23 @@ function Navbar() {
 							</li>
 						</ul>
 					</nav>
-					<div>
+					<div className='icon-wrapper'>
 						<img
 							className='cart-icon'
 							src={CartIcon}
 							alt=''
 							onClick={() => setOpenCart((prevState) => !prevState)}
 						/>
+						{orders.length > 0 && (
+							<div className='cart-basket' data-count={orders.length}>
+								{orders.length}
+							</div>
+						)}
 					</div>
 				</div>
 
 				<Hero />
-				{openCart && <Cart />}
+				{openCart && <Cart setOpenCart={setOpenCart} />}
 			</div>
 		</header>
 	);

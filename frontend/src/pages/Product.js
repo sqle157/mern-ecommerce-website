@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useHttpHook } from '../hooks/useHttpHook';
 import { useProductContext } from '../hooks/useProductContext';
 
 // Components
@@ -15,30 +16,20 @@ import BestGear from '../components/Layouts/BestGear';
 
 function Product() {
 	const { dispatch } = useProductContext();
-	const [isLoading, setIsLoading] = useState(false);
-	const [error, setError] = useState(null);
+	const { isLoading, error, sendRequest } = useHttpHook();
 
 	const { slug } = useParams();
 
 	useEffect(() => {
-		setIsLoading(true);
 		const fetchProduct = async () => {
-			const response = await fetch(`/api/products/${slug}`);
+			const data = await sendRequest(`/api/products/${slug}`);
 
-			const data = await response.json();
-
-			if (response.ok) {
-				// console.log(data);
-				dispatch({ type: 'SET_PRODUCT', payload: data });
-			} else {
-				setError(data.error);
-			}
-
-			setIsLoading(false);
+			console.log(data);
+			dispatch({ type: 'SET_PRODUCT', payload: data });
 		};
 
 		fetchProduct();
-	}, [dispatch, slug]);
+	}, [dispatch, slug, sendRequest]);
 
 	return (
 		<div className='container'>

@@ -6,7 +6,7 @@ import './BestGear.scss';
 function BestGear() {
 	return (
 		<section id='best-gear'>
-			<div className='grid best-gear__container'>
+			<article className='grid best-gear__container'>
 				<div>
 					<h2>
 						Bringing you the <span>best</span> audio gear
@@ -21,7 +21,7 @@ function BestGear() {
 					</p>
 				</div>
 				<div></div>
-			</div>
+			</article>
 		</section>
 	);
 }

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 // Components
 import Button from './Button';
 // Css
@@ -6,6 +6,7 @@ import './Hero.scss';
 
 function Hero() {
 	const params = useParams();
+	const location = useLocation();
 
 	if (params.category) {
 		return (
@@ -15,7 +16,7 @@ function Hero() {
 		);
 	}
 
-	if (params.slug) {
+	if (params.slug || location.pathname === '/checkout') {
 		return <></>;
 	}
 

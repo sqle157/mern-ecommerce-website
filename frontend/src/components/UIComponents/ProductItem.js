@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useOrderContext } from '../../hooks/useOrderContext';
 // components & icons
 import Button from './Button';
 import { FaPlus, FaMinus } from 'react-icons/fa';
@@ -7,6 +8,7 @@ import './ProductItem.scss';
 
 function ProductItem({ product, index, productPage }) {
 	const [productQuantity, setProductQuantity] = useState(1);
+	const { dispatch } = useOrderContext();
 
 	const handleMinusClick = () => {
 		setProductQuantity((quantity) => (quantity !== 1 ? quantity - 1 : 1));
@@ -14,6 +16,20 @@ function ProductItem({ product, index, productPage }) {
 
 	const handlePlusClick = () => {
 		setProductQuantity((quantity) => quantity + 1);
+	};
+
+	const handleAddToCart = () => {
+		const productItem = {
+			id: product._id,
+			name: product.shortName,
+			price: product.price,
+			image: product.image.mobile,
+			quantity: productQuantity,
+		};
+
+		setProductQuantity(1);
+
+		dispatch({ type: 'ADD_ORDER', payload: productItem });
 	};
 
 	if (productPage) {
@@ -43,7 +59,11 @@ function ProductItem({ product, index, productPage }) {
 							<FaPlus className='icon' onClick={handlePlusClick} />
 						</div>
 
-						<Button className='btn btn-primary' text='Add to cart' />
+						<Button
+							className='btn btn-primary'
+							text='Add to cart'
+							onClick={handleAddToCart}
+						/>
 					</div>
 				</div>
 			</div>
