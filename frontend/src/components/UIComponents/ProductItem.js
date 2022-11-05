@@ -50,13 +50,13 @@ function ProductItem({ product, index, productPage }) {
 
 					<div className='product-action flex'>
 						<div className='flex'>
-							<FaMinus className='icon' onClick={handleMinusClick} />
+							<FaMinus onClick={handleMinusClick} />
 							<input
 								type='number'
 								value={productQuantity}
 								onChange={(e) => setProductQuantity(e.target.value)}
 							/>
-							<FaPlus className='icon' onClick={handlePlusClick} />
+							<FaPlus onClick={handlePlusClick} />
 						</div>
 
 						<Button
