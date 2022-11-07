@@ -53,10 +53,6 @@
 			&:is(:hover, :focus-within) {
 				border: 2px solid #d87d4a;
 			}
-
-			// &:invalid {
-			// 	border: 2px solid #cd2c2c;
-			// }
 		}
 
 		&:has(input#address, .form-radio) {
@@ -104,7 +100,7 @@
 			}
 		}
 
-		input[type='radio'] {
+		& > input[type='radio'] {
 			display: inline-block;
 			width: 20px;
 			height: 20px;
@@ -141,15 +137,4 @@
 			}
 		}
 	}
-}
-
-.error-message {
-	position: absolute;
-	top: 0;
-	right: 0;
-	font-size: 0.75rem;
-	line-height: 1rem;
-	font-weight: var(--fw-500);
-	letter-spacing: -0.21px;
-	color: #cd2c2c;
 }

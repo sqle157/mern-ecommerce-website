@@ -11,7 +11,11 @@ export const useHttpHook = () => {
 	const sendRequest = useCallback(
 		async (url, method = 'GET', body = null, headers = {}) => {
 			setIsLoading(true);
+			// reset previous error & field lists
 			setError(null);
+			setEmptyFields([]);
+			setErrorFields([]);
+
 			// Set controller signal
 			const httpAbortController = new AbortController();
 			activeHttpRequest.current.push(httpAbortController);
