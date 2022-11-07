@@ -21,10 +21,12 @@ function Product() {
 
 	useEffect(() => {
 		const fetchProduct = async () => {
-			const data = await sendRequest(`/api/products/${slug}`);
+			try {
+				const data = await sendRequest(`/api/products/${slug}`);
 
-			console.log(data);
-			dispatch({ type: 'SET_PRODUCT', payload: data });
+				console.log(data);
+				dispatch({ type: 'SET_PRODUCT', payload: data });
+			} catch (error) {}
 		};
 
 		fetchProduct();

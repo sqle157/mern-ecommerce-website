@@ -31,9 +31,11 @@ export const ProductContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		const fetchProducts = async () => {
-			const data = await sendRequest('/api/products');
+			try {
+				const data = await sendRequest('/api/products');
 
-			dispatch({ type: 'SET_PRODUCTS', payload: data });
+				dispatch({ type: 'SET_PRODUCTS', payload: data });
+			} catch (error) {}
 		};
 
 		fetchProducts();

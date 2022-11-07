@@ -55,11 +55,12 @@ input[type='number'] {
 	width: 100%;
 	text-align: center;
 	font-weight: 700;
+	appearance: none;
+	-moz-appearance: textfield;
 
 	&::-webkit-inner-spin-button,
 	&::-webkit-outer-spin-button {
-		-webkit-appearance: none;
-		appearance: none;
+		display: none;
 		margin: 0;
 	}
 }

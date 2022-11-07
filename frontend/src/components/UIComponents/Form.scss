@@ -149,4 +149,32 @@
 			grid-template-columns: 1fr;
 		}
 	}
+
+	// Safari & Firefox CSS
+	&-error {
+		label {
+			color: #cd2c2c;
+		}
+
+		input {
+			border: 2px solid #cd2c2c;
+		}
+	}
+}
+
+// Safari & Firefox CSS
+#form {
+	&-address,
+	&-radio {
+		grid-column: 1 / -1;
+	}
+
+	&-radio {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+
+		@include mq(mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
 }

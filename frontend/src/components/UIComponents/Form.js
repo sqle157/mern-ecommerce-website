@@ -85,7 +85,12 @@ const Form = () => {
 			<div className='form-group'>
 				<span className='subtitle'>Billing Details</span>
 				<div className='form-control'>
-					<div className='form-input'>
+					<div
+						className={`form-input ${
+							error === 'Empty Field' && emptyFields.includes('info') && !name
+								? 'form-error'
+								: ''
+						}`}>
 						<label htmlFor='name'>Name</label>
 						<input
 							type='text'
@@ -98,7 +103,16 @@ const Form = () => {
 							emptyFields.includes('info') &&
 							!name && <span className='error-message'>{error}</span>}
 					</div>
-					<div className='form-input'>
+					<div
+						className={`form-input ${
+							error &&
+							((emptyFields.length > 0 &&
+								emptyFields.includes('info') &&
+								!email) ||
+								(errorFields.length > 0 && errorFields.includes('email')))
+								? 'form-error'
+								: ''
+						}`}>
 						<label htmlFor='email'>Email</label>
 						<input
 							type='email'
@@ -110,12 +124,21 @@ const Form = () => {
 						{error &&
 							((emptyFields.length > 0 &&
 								emptyFields.includes('info') &&
-								!zipCode) ||
+								!email) ||
 								(errorFields.length > 0 && errorFields.includes('email'))) && (
 								<span className='error-message'>{error}</span>
 							)}
 					</div>
-					<div className='form-input'>
+					<div
+						className={`form-input ${
+							error &&
+							((emptyFields.length > 0 &&
+								emptyFields.includes('info') &&
+								!phone) ||
+								(errorFields.length > 0 && errorFields.includes('phone')))
+								? 'form-error'
+								: ''
+						}`}>
 						<label htmlFor='phone'>Phone</label>
 						<input
 							type='tel'
@@ -127,7 +150,7 @@ const Form = () => {
 						{error &&
 							((emptyFields.length > 0 &&
 								emptyFields.includes('info') &&
-								!zipCode) ||
+								!phone) ||
 								(errorFields.length > 0 && errorFields.includes('phone'))) && (
 								<span className='error-message'>{error}</span>
 							)}
@@ -137,7 +160,15 @@ const Form = () => {
 			<div className='form-group'>
 				<span className='subtitle'>Shopping Info</span>
 				<div className='form-control'>
-					<div className='form-input'>
+					<div
+						className={`form-input ${
+							error === 'Empty Field' &&
+							emptyFields.includes('info') &&
+							!address
+								? 'form-error'
+								: ''
+						}`}
+						id='form-address'>
 						<label htmlFor='address'>Address</label>
 						<input
 							type='text'
@@ -150,7 +181,16 @@ const Form = () => {
 							emptyFields.includes('info') &&
 							!address && <span className='error-message'>{error}</span>}
 					</div>
-					<div className='form-input'>
+					<div
+						className={`form-input ${
+							error &&
+							((emptyFields.length > 0 &&
+								emptyFields.includes('info') &&
+								!zipCode) ||
+								(errorFields.length > 0 && errorFields.includes('zip-code')))
+								? 'form-error'
+								: ''
+						}`}>
 						<label htmlFor='zip-code'>Zip Code</label>
 						<input
 							type='text'
@@ -168,7 +208,12 @@ const Form = () => {
 								<span className='error-message'>{error}</span>
 							)}
 					</div>
-					<div className='form-input'>
+					<div
+						className={`form-input ${
+							error === 'Empty Field' && emptyFields.includes('info') && !city
+								? 'form-error'
+								: ''
+						}`}>
 						<label htmlFor='city'>City</label>
 						<input
 							type='text'
@@ -181,7 +226,14 @@ const Form = () => {
 							emptyFields.includes('info') &&
 							!city && <span className='error-message'>{error}</span>}
 					</div>
-					<div className='form-input'>
+					<div
+						className={`form-input ${
+							error === 'Empty Field' &&
+							emptyFields.includes('info') &&
+							!country
+								? 'form-error'
+								: ''
+						}`}>
 						<label htmlFor='country'>Country</label>
 						<input
 							type='text'
@@ -199,7 +251,7 @@ const Form = () => {
 			<div className='form-group'>
 				<span className='subtitle'>Payment Details</span>
 				<div className='form-control'>
-					<div className='form-input'>
+					<div className='form-input' id='form-radio'>
 						<label htmlFor=''>Payment Method</label>
 						<div className='form-radio'>
 							<div className='flex'>
@@ -226,7 +278,14 @@ const Form = () => {
 					</div>
 					{method === 'e-Money' && (
 						<>
-							<div className='form-input'>
+							<div
+								className={`form-input ${
+									error === 'Empty Field' &&
+									emptyFields.includes('method') &&
+									!eNumber
+										? 'form-error'
+										: ''
+								}`}>
 								<label htmlFor='eMoneyNumber'>e-Money Number</label>
 								<input
 									type='text'
@@ -239,7 +298,14 @@ const Form = () => {
 									emptyFields.includes('method') &&
 									!eNumber && <span className='error-message'>{error}</span>}
 							</div>
-							<div className='form-input'>
+							<div
+								className={`form-input ${
+									error === 'Empty Field' &&
+									emptyFields.includes('method') &&
+									!ePIN
+										? 'form-error'
+										: ''
+								}`}>
 								<label htmlFor='city'>e-Money PIN</label>
 								<input
 									type='text'

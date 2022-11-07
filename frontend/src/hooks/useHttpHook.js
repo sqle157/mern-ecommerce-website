@@ -50,7 +50,12 @@ export const useHttpHook = () => {
 
 				return data;
 			} catch (error) {
-				if (error.message !== 'The user aborted a request.') {
+				console.log(error.message);
+				if (
+					error.message !== 'The user aborted a request.' &&
+					error.message !== 'The operation was aborted. ' &&
+					error.message !== 'Fetch is aborted'
+				) {
 					setError(error.message);
 					setIsLoading(false);
 					throw error;

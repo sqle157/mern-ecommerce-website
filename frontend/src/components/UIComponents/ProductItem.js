@@ -55,6 +55,7 @@ function ProductItem({ product, index, productPage }) {
 								type='number'
 								value={productQuantity}
 								onChange={(e) => setProductQuantity(e.target.value)}
+								disabled
 							/>
 							<FaPlus onClick={handlePlusClick} />
 						</div>
