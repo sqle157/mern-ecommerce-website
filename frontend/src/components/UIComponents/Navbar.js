@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useOrderContext } from '../../hooks/useOrderContext';
-// icons & images
+// Icons & Images
 import Logo from '../../assets/shared/desktop/logo.svg';
 import CartIcon from '../../assets/shared/desktop/icon-cart.svg';
 import BurgerIcon from '../../assets/shared/tablet/icon-hamburger.svg';
-// components
+// Components
 import Hero from './Hero';
 import MobileMenu from './MobileMenu';
 import Cart from './Cart';
-// css
+// CSS
 import './Navbar.scss';
 
 function Navbar() {

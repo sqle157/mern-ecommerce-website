@@ -1,10 +1,9 @@
 import Button from '../UIComponents/Button';
-// images
+// Images
 import ZX9ImageDesktop from '../../assets/home/desktop/image-speaker-zx9.png';
 import ZX9ImageTablet from '../../assets/home/tablet/image-speaker-zx9.png';
 import ZX9ImageMobile from '../../assets/home/mobile/image-speaker-zx9.png';
-
-// css
+// CSS
 import './ProductsPreview.scss';
 
 function ProductsPreview() {

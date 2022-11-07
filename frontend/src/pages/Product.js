@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useHttpHook } from '../hooks/useHttpHook';
 import { useProductContext } from '../hooks/useProductContext';
-
 // Components
 import LoadingSpinner from '../components/UIComponents/LoadingSpinner';
 import Button from '../components/UIComponents/Button';

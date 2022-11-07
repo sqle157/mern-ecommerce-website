@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
 import { memo } from 'react';
-
-// images & icon
+// Images
 import HeadphonesCategory from '../../assets/shared/desktop/image-category-thumbnail-headphones.png';
 import EarphonesCategory from '../../assets/shared/desktop/image-category-thumbnail-earphones.png';
 import SpeakersCategory from '../../assets/shared/desktop/image-category-thumbnail-speakers.png';
-
 // css
 import './ProductCategories.scss';
 

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-
-// css
+// CSS
 import './Button.scss';
 
 const Button = ({ className, text, to, onClick, form, role }) => {

@@ -1,3 +1,4 @@
+// Layouts
 import CheckoutSection from '../components/Layouts/CheckoutSection';
 
 function Checkout() {

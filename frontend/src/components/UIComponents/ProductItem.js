@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useOrderContext } from '../../hooks/useOrderContext';
-// components & icons
+// Components & Icons
 import Button from './Button';
 import { FaPlus, FaMinus } from 'react-icons/fa';
-// Css
+// CSS
 import './ProductItem.scss';
 
 function ProductItem({ product, index, productPage }) {

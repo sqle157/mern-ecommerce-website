@@ -1,7 +1,7 @@
 import { useParams, useLocation } from 'react-router-dom';
 // Components
 import Button from './Button';
-// Css
+// CSS
 import './Hero.scss';
 
 function Hero() {

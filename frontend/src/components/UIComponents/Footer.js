@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import { memo } from 'react';
-// images & logos
+// Images & Logos
 import Logo from '../../assets/shared/desktop/logo.svg';
-
 // css
 import './Footer.scss';
 

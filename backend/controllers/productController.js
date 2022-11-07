@@ -7,6 +7,7 @@ const Product = require('../models/productModel');
  */
 const getProducts = async (req, res) => {
 	try {
+		// Get all products
 		const products = await Product.find({});
 		res.status(200).json(products);
 	} catch (error) {
@@ -22,6 +23,7 @@ const getProducts = async (req, res) => {
 const getProduct = async (req, res) => {
 	const { slug } = req.params;
 
+	// Find product by slug name
 	const product = await Product.findOne({ slug });
 
 	if (!product) {

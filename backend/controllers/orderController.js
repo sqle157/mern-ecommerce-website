@@ -58,6 +58,7 @@ const createOrder = async (req, res) => {
 	}
 
 	try {
+		// Create new order
 		const order = await Order.create({
 			name,
 			email,

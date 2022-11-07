@@ -1,6 +1,5 @@
 import { memo } from 'react';
-
-// Css
+// CSS
 import './BestGear.scss';
 
 function BestGear() {

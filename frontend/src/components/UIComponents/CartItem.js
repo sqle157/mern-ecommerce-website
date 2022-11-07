@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useOrderContext } from '../../hooks/useOrderContext';
-
 // Icons
 import { FaPlus, FaMinus } from 'react-icons/fa';
 // CSS

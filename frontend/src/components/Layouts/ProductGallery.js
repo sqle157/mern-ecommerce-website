@@ -1,5 +1,5 @@
 import { useProductContext } from '../../hooks/useProductContext';
-// css
+// CSS
 import './ProductGallery.scss';
 
 function ProductGallery() {

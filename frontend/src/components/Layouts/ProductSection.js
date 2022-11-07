@@ -1,8 +1,8 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { useProductContext } from '../../hooks/useProductContext';
-// components
+// Components
 import ProductItem from '../UIComponents/ProductItem';
-// css
+// CSS
 import './ProductSection.scss';
 
 function ProductSection() {

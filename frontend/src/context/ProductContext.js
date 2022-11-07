@@ -1,6 +1,11 @@
 import { createContext, useReducer, useEffect } from 'react';
 import { useHttpHook } from '../hooks/useHttpHook';
 
+const initialState = {
+	products: null,
+	product: null,
+};
+
 export const ProductContext = createContext();
 
 const productReducer = (state, action) => {
@@ -21,10 +26,7 @@ const productReducer = (state, action) => {
 };
 
 export const ProductContextProvider = ({ children }) => {
-	const [state, dispatch] = useReducer(productReducer, {
-		products: null,
-		product: null,
-	});
+	const [state, dispatch] = useReducer(productReducer, initialState);
 	const { sendRequest } = useHttpHook();
 
 	useEffect(() => {

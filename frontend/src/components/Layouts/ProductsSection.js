@@ -1,8 +1,8 @@
 import { useProductContext } from '../../hooks/useProductContext';
-// components
+// Components
 import Button from '../UIComponents/Button';
 import ProductItem from '../UIComponents/ProductItem';
-// css
+// CSS
 import './ProductsSection.scss';
 
 function Products({ category }) {
