@@ -50,6 +50,7 @@ const Form = () => {
 			if (data) {
 				window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 				dispatch({ type: 'TOGGLE_MODAL' });
+				dispatch({ type: 'REMOVE_ALL_ORDER' });
 				clearFields();
 			}
 		} catch (error) {}

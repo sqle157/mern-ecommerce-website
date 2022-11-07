@@ -24,8 +24,19 @@ function Navbar() {
 	}, [openMenu, openCart, openModal]);
 
 	const handleMenuClick = () => {
+		window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 		setOpenCart(false);
 		setOpenMenu((prevState) => !prevState);
+	};
+
+	const handleLogoClick = () => {
+		setOpenCart(false);
+		setOpenMenu(false);
+	};
+
+	const handleCartClick = () => {
+		setOpenMenu(false);
+		setOpenCart((prevState) => !prevState);
 	};
 
 	return (
@@ -42,7 +53,7 @@ function Navbar() {
 						alt=''
 						onClick={handleMenuClick}
 					/>
-					<Link to='/' onClick={() => setOpenCart(false)}>
+					<Link to='/' onClick={handleLogoClick}>
 						<img src={Logo} alt='logo' />
 					</Link>
 					<nav>
@@ -90,7 +101,7 @@ function Navbar() {
 							className='cart-icon'
 							src={CartIcon}
 							alt=''
-							onClick={() => setOpenCart((prevState) => !prevState)}
+							onClick={handleCartClick}
 						/>
 						{orders.length > 0 && (
 							<div className='cart-basket' data-count={orders.length}>

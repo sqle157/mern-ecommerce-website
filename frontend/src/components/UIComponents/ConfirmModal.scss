@@ -1,6 +1,10 @@
+@use '../../sass/abstract' as *;
+
 #modal-overlay {
 	display: grid;
 	place-items: center;
+	z-index: 100;
+	overflow: auto;
 }
 
 .modal {
@@ -10,23 +14,38 @@
 	border-radius: 0.5rem;
 	background-color: var(--clr-neutral-100);
 
+	@include mq(mobile) {
+		padding: 2rem;
+	}
+
 	h3 {
 		margin-block: 2rem 1.5rem;
+
+		@include mq(mobile) {
+			margin-block: 1.5rem 1rem;
+		}
 	}
 
 	& > p {
 		color: var(--clr-neutral-300);
 		opacity: 0.5;
 		margin-bottom: 2rem;
+
+		@include mq(mobile) {
+			margin-bottom: 1.5rem;
+		}
 	}
 
 	&__content {
 		display: grid;
 		grid-template-columns: 1.25fr 1fr;
 		margin-bottom: 2.875rem;
+		border-radius: 0.5rem;
+		overflow: hidden;
 
-		& > * {
-			flex: 1;
+		@include mq(mobile) {
+			grid-template-columns: 1fr;
+			margin-bottom: 1.5rem;
 		}
 	}
 

@@ -7,8 +7,8 @@ import OrderConfirmIcon from '../../assets/checkout/icon-order-confirmation.svg'
 // CSS
 import './ConfirmModal.scss';
 
-const ConfirmModal = ({ grandTotal, setOpenModal }) => {
-	const { orders, dispatch } = useOrderContext();
+const ConfirmModal = ({ grandTotal, orders }) => {
+	const { dispatch } = useOrderContext();
 	const [finalOrders, setFinalOrders] = useState([{ ...orders[0] }]);
 
 	const handleSeeMoreOrder = () => {
@@ -21,7 +21,6 @@ const ConfirmModal = ({ grandTotal, setOpenModal }) => {
 
 	const handleHomeClick = () => {
 		dispatch({ type: 'TOGGLE_MODAL' });
-		dispatch({ type: 'REMOVE_ALL_ORDER' });
 	};
 
 	return ReactDOM.createPortal(

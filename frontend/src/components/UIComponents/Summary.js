@@ -11,31 +11,46 @@ const Summary = () => {
 	const [total, setTotal] = useState();
 	const [vat, setVat] = useState();
 	const [grandTotal, setGrandTotal] = useState();
+	const [currentOrders, setCurrentOrders] = useState(orders);
 
 	useEffect(() => {
+		// Set current orders
+		setCurrentOrders(currentOrders);
+
 		// Calculate Total (before taxes)
 		setTotal(
 			new Intl.NumberFormat('en-US').format(
-				orders.reduce((acc, order) => acc + order.price * order.quantity, 0)
+				currentOrders.reduce(
+					(acc, order) => acc + order.price * order.quantity,
+					0
+				)
 			)
 		);
 		// Calculate VAT
 		setVat(
 			new Intl.NumberFormat('en-US').format(
-				orders.reduce((acc, order) => acc + order.price * order.quantity, 0) *
-					0.05
+				currentOrders.reduce(
+					(acc, order) => acc + order.price * order.quantity,
+					0
+				) * 0.05
 			)
 		);
 		// Calculate grand total (include taxes)
 		setGrandTotal(
 			new Intl.NumberFormat('en-US').format(
-				orders.reduce((acc, order) => acc + order.price * order.quantity, 0) *
+				currentOrders.reduce(
+					(acc, order) => acc + order.price * order.quantity,
+					0
+				) *
 					0.05 +
 					50 +
-					orders.reduce((acc, order) => acc + order.price * order.quantity, 0)
+					currentOrders.reduce(
+						(acc, order) => acc + order.price * order.quantity,
+						0
+					)
 			)
 		);
-	}, [orders]);
+	}, [currentOrders]);
 
 	return (
 		<>
@@ -57,19 +72,19 @@ const Summary = () => {
 						</div>
 					</div>
 				))}
-				<div className='summary-final'>
+				<div className='summary-final summary-final--1'>
 					<p>Total</p>
 					<h6>${total}</h6>
 				</div>
-				<div className='summary-final'>
+				<div className='summary-final summary-final--2'>
 					<p>Shipping</p>
 					<h6>$50</h6>
 				</div>
-				<div className='summary-final'>
+				<div className='summary-final summary-final--3'>
 					<p>VAT (include)</p>
 					<h6>${vat}</h6>
 				</div>
-				<div className='summary-final'>
+				<div className='summary-final summary-final--4'>
 					<p>Grand Total</p>
 					<h6>${grandTotal}</h6>
 				</div>
@@ -81,7 +96,9 @@ const Summary = () => {
 					role='submit'
 				/>
 			</div>
-			{openModal && <ConfirmModal grandTotal={grandTotal} />}
+			{openModal && (
+				<ConfirmModal grandTotal={grandTotal} orders={currentOrders} />
+			)}
 		</>
 	);
 };

@@ -16,6 +16,10 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 1.5rem 1rem;
+
+		@include mq(mobile) {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	&-input {
@@ -62,6 +66,10 @@
 		&:has(.form-radio) {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
+
+			@include mq(mobile) {
+				grid-template-columns: 1fr;
+			}
 		}
 
 		&:has(.error-message) {
@@ -100,7 +108,7 @@
 			}
 		}
 
-		& > input[type='radio'] {
+		input[type='radio'] {
 			display: inline-block;
 			width: 20px;
 			height: 20px;
@@ -135,6 +143,10 @@
 				color: var(--clr-neutral-300);
 				opacity: 0.5;
 			}
+		}
+
+		@include mq(mobile) {
+			grid-template-columns: 1fr;
 		}
 	}
 }
