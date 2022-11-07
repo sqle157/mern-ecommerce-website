@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // css
 import './Button.scss';
 
-const Button = ({ className, text, to, onClick }) => {
+const Button = ({ className, text, to, onClick, form, role }) => {
 	if (to) {
 		return (
 			<Link className={className} to={to} onClick={onClick}>
@@ -13,7 +13,7 @@ const Button = ({ className, text, to, onClick }) => {
 	}
 
 	return (
-		<button className={className} onClick={onClick}>
+		<button className={className} onClick={onClick} form={form} role={role}>
 			{text}
 		</button>
 	);

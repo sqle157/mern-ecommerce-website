@@ -1,0 +1,50 @@
+@use '../../sass/abstract' as *;
+
+.summary {
+	padding: 2rem;
+	border-radius: 0.5rem;
+	height: max-content;
+	background-color: var(--clr-neutral-100);
+
+	& > .btn {
+		width: 100%;
+		height: 3rem;
+	}
+
+	&-item {
+		--gap: 0;
+		align-items: center;
+		margin-top: 1.5rem;
+
+		& > :nth-child(3) {
+			margin-left: auto;
+		}
+	}
+
+	&-final {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 0.5rem;
+
+		&:nth-of-type(3) {
+			margin-top: 2rem;
+		}
+
+		&:nth-last-child(3) {
+			margin-bottom: 1.5rem;
+		}
+
+		&:nth-last-child(2) {
+			margin-bottom: 2rem;
+			h6 {
+				color: var(--clr-primary-400);
+			}
+		}
+
+		p {
+			text-transform: uppercase;
+			color: var(--clr-neutral-300);
+			opacity: 0.5;
+		}
+	}
+}

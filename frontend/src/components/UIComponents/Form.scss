@@ -1,0 +1,155 @@
+@use '../../sass/abstract' as *;
+
+.form {
+	background-color: var(--clr-neutral-100);
+	padding: 3rem;
+	border-radius: 0.5rem;
+
+	&-group {
+		span:not(.error-message) {
+			display: block;
+			margin-block: 2.5rem 1rem;
+		}
+	}
+
+	&-control {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem 1rem;
+	}
+
+	&-input {
+		position: relative;
+
+		label {
+			display: block;
+			font-weight: var(--fw-700);
+			font-size: 0.75rem;
+			line-height: 16px;
+			letter-spacing: -0.21px;
+			margin-bottom: 0.5625rem;
+		}
+
+		& > input {
+			cursor: pointer;
+			display: block;
+			width: 100%;
+			height: 3.5rem;
+			padding-inline: 1.5rem;
+			border: 1px solid #cfcfcf;
+			border-radius: 0.5rem;
+			font-weight: var(--fw-700);
+			font-size: 0.875rem;
+			line-height: 19px;
+			color: var(--clr-neutral-300);
+			letter-spacing: -0.25px;
+
+			&::placeholder {
+				color: var(--clr-neutral-300);
+				opacity: 0.4;
+				font-weight: var(--fw-700);
+			}
+
+			&:is(:hover, :focus-within) {
+				border: 2px solid #d87d4a;
+			}
+
+			// &:invalid {
+			// 	border: 2px solid #cd2c2c;
+			// }
+		}
+
+		&:has(input#address, .form-radio) {
+			grid-column: 1 / -1;
+		}
+
+		&:has(.form-radio) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		&:has(.error-message) {
+			label {
+				color: #cd2c2c;
+			}
+
+			input {
+				border: 2px solid #cd2c2c;
+			}
+		}
+	}
+
+	&-radio {
+		& > * {
+			cursor: pointer;
+			padding: 1rem;
+			align-items: center;
+			border-radius: 0.5rem;
+			border: 1px solid #cfcfcf;
+
+			label {
+				margin: 0;
+			}
+
+			&:nth-child(1) {
+				margin-bottom: 1rem;
+			}
+
+			&:has(input[type='radio']:checked) {
+				border: 1px solid #d87d4a;
+			}
+
+			&:is(:hover, :focus-within) {
+				border: 1px solid #d87d4a;
+			}
+		}
+
+		input[type='radio'] {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			border: 1px solid #cfcfcf;
+			border-radius: 50%;
+			position: relative;
+
+			&:checked:after {
+				content: '';
+				position: absolute;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				top: 50%;
+				left: 50%;
+				translate: -50% -50%;
+				background-color: #d87d4a;
+			}
+		}
+	}
+
+	&-message {
+		grid-column: 1 / -1;
+		display: grid;
+		grid-template-columns: 3rem auto;
+		place-items: center;
+		gap: 2rem;
+		margin-top: 1.875rem;
+
+		& > :nth-child(2) {
+			p {
+				color: var(--clr-neutral-300);
+				opacity: 0.5;
+			}
+		}
+	}
+}
+
+.error-message {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	font-weight: var(--fw-500);
+	letter-spacing: -0.21px;
+	color: #cd2c2c;
+}

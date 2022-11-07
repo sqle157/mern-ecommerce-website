@@ -3,28 +3,8 @@
 	align-items: center;
 	margin-bottom: 1.5rem;
 
-	& > :nth-child(1) {
-		width: 4rem;
-		height: 4rem;
-		margin-right: 1rem;
-		border-radius: 0.5rem;
-		overflow: hidden;
-	}
-
 	& > :nth-child(2) {
 		width: 6rem;
-		p {
-			color: var(--clr-neutral-300);
-			font-weight: 700;
-		}
-
-		span {
-			font-size: 0.875rem;
-			line-height: 25px;
-			font-weight: 700;
-			color: var(--clr-neutral-300);
-			opacity: 0.5;
-		}
 	}
 
 	& > :nth-child(3) {
@@ -48,5 +28,44 @@
 			aspect-ratio: 1;
 			opacity: 0.25;
 		}
+	}
+}
+
+.order {
+	&-image {
+		width: 4rem;
+		height: 4rem;
+		margin-right: 1rem;
+		border-radius: 0.5rem;
+		overflow: hidden;
+	}
+
+	&-name {
+		color: var(--clr-neutral-300);
+		font-weight: 700;
+	}
+
+	&-price {
+		font-size: 0.875rem;
+		line-height: 25px;
+		font-weight: 700;
+		color: var(--clr-neutral-300);
+		opacity: 0.5;
+	}
+
+	&-quantity {
+		font-weight: var(--fw-700);
+		color: var(--clr-neutral-300);
+		opacity: 0.5;
+	}
+
+	&-remaining {
+		cursor: pointer;
+		text-align: center;
+		font-size: 0.75rem;
+		line-height: 1rem;
+		font-weight: var(--fw-700);
+		color: var(--clr-neutral-300);
+		opacity: 0.5;
 	}
 }

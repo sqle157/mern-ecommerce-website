@@ -19,7 +19,7 @@ section#product {
 			a:not(.btn) {
 				font-size: 0.9375rem;
 				line-height: 25px;
-				font-weight: 500;
+				font-weight: var(--fw-500);
 				text-transform: capitalize;
 				margin-bottom: 3.5rem;
 			}

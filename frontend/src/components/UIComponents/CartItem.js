@@ -24,12 +24,14 @@ const CartItem = ({ order }) => {
 
 	return (
 		<div key={order.id} className='cart__item flex'>
-			<div>
+			<div className='order-image'>
 				<img src={order.image} alt='' />
 			</div>
 			<div>
-				<p>{order.name}</p>
-				<span>$ {new Intl.NumberFormat('en-US').format(order.price)}</span>
+				<p className='order-name'>{order.name}</p>
+				<span className='order-price'>
+					$ {new Intl.NumberFormat('en-US').format(order.price)}
+				</span>
 			</div>
 			<div className='flex'>
 				<FaMinus onClick={handleReduceQuantiy} />

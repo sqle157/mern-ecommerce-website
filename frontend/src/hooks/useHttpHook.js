@@ -3,6 +3,8 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 export const useHttpHook = () => {
 	const [error, setError] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
+	const [emptyFields, setEmptyFields] = useState([]);
+	const [errorFields, setErrorFields] = useState([]);
 
 	const activeHttpRequest = useRef([]);
 
@@ -29,6 +31,14 @@ export const useHttpHook = () => {
 				);
 
 				if (!response.ok) {
+					if (data.emptyFields) {
+						setEmptyFields(data.emptyFields);
+					}
+
+					if (data.errorFields) {
+						setErrorFields(data.errorFields);
+					}
+
 					throw new Error(data.error);
 				}
 
@@ -52,5 +62,5 @@ export const useHttpHook = () => {
 		};
 	}, []);
 
-	return { isLoading, error, sendRequest };
+	return { isLoading, error, emptyFields, errorFields, sendRequest };
 };

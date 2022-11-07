@@ -2,6 +2,7 @@ import { createContext, useReducer } from 'react';
 
 const initialState = {
 	orders: JSON.parse(localStorage.getItem('order')) || [],
+	openModal: false,
 };
 
 export const OrderContext = createContext();
@@ -37,6 +38,7 @@ const orderReducer = (state, action) => {
 			localStorage.setItem('order', JSON.stringify(newOrders));
 
 			return {
+				...state,
 				orders: [...newOrders],
 			};
 		}
@@ -57,14 +59,22 @@ const orderReducer = (state, action) => {
 			localStorage.setItem('order', JSON.stringify(newOrders));
 
 			return {
+				...state,
 				orders: [...newOrders],
 			};
 		}
 		case 'REMOVE_ALL_ORDER':
 			localStorage.removeItem('order');
 			return {
+				...state,
 				orders: [],
 			};
+		case 'TOGGLE_MODAL': {
+			return {
+				...state,
+				openModal: !state.openModal,
+			};
+		}
 		default:
 			return state;
 	}

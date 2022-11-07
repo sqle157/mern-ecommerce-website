@@ -15,12 +15,13 @@ import './Navbar.scss';
 function Navbar() {
 	const [openMenu, setOpenMenu] = useState(false);
 	const [openCart, setOpenCart] = useState(false);
-	const { orders } = useOrderContext();
+	const { orders, openModal } = useOrderContext();
 	const location = useLocation();
 
 	useEffect(() => {
-		document.body.style.overflow = openMenu || openCart ? 'hidden' : '';
-	}, [openMenu, openCart]);
+		document.body.style.overflow =
+			openMenu || openCart || openModal ? 'hidden' : '';
+	}, [openMenu, openCart, openModal]);
 
 	const handleMenuClick = () => {
 		setOpenCart(false);

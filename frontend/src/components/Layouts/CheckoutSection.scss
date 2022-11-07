@@ -1,0 +1,11 @@
+@use '../../sass/abstract' as *;
+
+section#checkout {
+	margin-block: 5rem 8.75rem;
+
+	.checkout-container {
+		--gap: 1.875rem;
+		grid-template-columns: 2.125fr 1fr;
+		margin-top: 2.375rem;
+	}
+}

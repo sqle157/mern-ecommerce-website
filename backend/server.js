@@ -10,6 +10,9 @@ connectDB();
 
 const app = express();
 
+// Middleware
+app.use(express.json()); // parse JSON data
+
 app.use((req, res, next) => {
 	console.log(req.path, req.method);
 	next();
@@ -17,5 +20,6 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/api/products', require('./routes/productRoutes'));
+app.use('/api/order', require('./routes/orderRoutes'));
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
