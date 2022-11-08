@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useOrderContext } from '../../hooks/useOrderContext';
 // Icons & Images
@@ -15,13 +15,12 @@ import './Navbar.scss';
 function Navbar() {
 	const [openMenu, setOpenMenu] = useState(false);
 	const [openCart, setOpenCart] = useState(false);
-	const { orders, openModal } = useOrderContext();
+	const { orders } = useOrderContext();
 	const location = useLocation();
 
-	useEffect(() => {
-		document.body.style.overflow =
-			openMenu || openCart || openModal ? 'hidden' : '';
-	}, [openMenu, openCart, openModal]);
+	useLayoutEffect(() => {
+		document.body.style.overflow = openMenu || openCart ? 'hidden' : '';
+	}, [openMenu, openCart]);
 
 	const handleMenuClick = () => {
 		window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
