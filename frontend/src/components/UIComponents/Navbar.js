@@ -56,7 +56,7 @@ function Navbar() {
 					<Link to='/' onClick={handleLogoClick}>
 						<img src={Logo} alt='logo' />
 					</Link>
-					<nav>
+					<nav aria-label='navbar nav'>
 						<ul className='flex header__nav'>
 							<li>
 								<Link

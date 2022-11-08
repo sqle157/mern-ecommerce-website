@@ -10,13 +10,13 @@ function Footer() {
 		<footer className='footer'>
 			<div className='container'>
 				<span></span>
-				<header className='flex footer__header'>
+				<section className='flex footer__header'>
 					<div>
 						<Link to='/'>
 							<img src={Logo} alt='logo' />
 						</Link>
 					</div>
-					<nav>
+					<nav aria-label='footer nav'>
 						<ul className='flex header__nav'>
 							<li>
 								<Link
@@ -56,7 +56,7 @@ function Footer() {
 							</li>
 						</ul>
 					</nav>
-				</header>
+				</section>
 				<section className='footer__content flex'>
 					<div>
 						<p className='opacity-5'>

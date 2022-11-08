@@ -19,7 +19,7 @@ function ProductsPreview() {
 						</picture>
 					</div>
 					<div className='preview-intro'>
-						<h1>ZX9 Speaker</h1>
+						<h2>ZX9 Speaker</h2>
 						<p className='opacity-75'>
 							Upgrade to premium speakers that are phenomenally built to deliver
 							truly remarkable sound.
@@ -33,7 +33,7 @@ function ProductsPreview() {
 				</div>
 				<div className='preview'>
 					<div className='preview-intro'>
-						<h4>ZX7 Speaker</h4>
+						<h3>ZX7 Speaker</h3>
 						<Button
 							className='btn btn-neutral-100'
 							text='See Product'
@@ -44,7 +44,7 @@ function ProductsPreview() {
 				<div className='preview'></div>
 				<div className='preview'>
 					<div className='preview-intro'>
-						<h4>YX1 Earphones</h4>
+						<h3>YX1 Earphones</h3>
 						<Button
 							className='btn btn-neutral-100'
 							text='See Product'
