@@ -23,17 +23,11 @@ app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/order', require('./routes/orderRoutes'));
 
 // Serve frontend
-if (process.env.NODE_ENV === 'production') {
-	// Set build folder as static
-	app.use(express.static(path.join(__dirname, '../frontend/build')));
+// Set build folder as static
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
-	app.get('*', (req, res) =>
-		res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
-	);
-} else {
-	app.get('/', (req, res) => {
-		res.status(200).json({ message: 'Welcome to the Ecommerce App API' });
-	});
-}
+app.get('*', (req, res) =>
+	res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
+);
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
