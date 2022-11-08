@@ -58,29 +58,6 @@
 				border: 2px solid #d87d4a;
 			}
 		}
-
-		&:has(input#address, .form-radio) {
-			grid-column: 1 / -1;
-		}
-
-		&:has(.form-radio) {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-
-			@include mq(mobile) {
-				grid-template-columns: 1fr;
-			}
-		}
-
-		&:has(.error-message) {
-			label {
-				color: #cd2c2c;
-			}
-
-			input {
-				border: 2px solid #cd2c2c;
-			}
-		}
 	}
 
 	&-radio {
