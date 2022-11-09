@@ -1,10 +1,9 @@
 @use '../../sass/abstract' as *;
 
-#modal-overlay {
+.overlay--modal {
 	display: grid;
 	place-items: center;
 	z-index: 100;
-	overflow: auto;
 }
 
 .modal {

@@ -25,7 +25,7 @@ const ConfirmModal = ({ grandTotal, orders }) => {
 	};
 
 	return ReactDOM.createPortal(
-		<div className='overlay' id='modal-overlay'>
+		<div className='overlay overlay--modal'>
 			<div className='container'>
 				<div className='modal'>
 					<div>
