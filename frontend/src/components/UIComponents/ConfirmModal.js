@@ -20,6 +20,7 @@ const ConfirmModal = ({ grandTotal, orders }) => {
 	};
 
 	const handleHomeClick = () => {
+		dispatch({ type: 'REMOVE_ALL_ORDER' });
 		dispatch({ type: 'TOGGLE_MODAL' });
 	};
 

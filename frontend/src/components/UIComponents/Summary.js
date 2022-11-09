@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useOrderContext } from '../../hooks/useOrderContext';
+import { useNavigate } from 'react-router-dom';
 // Components
 import Button from './Button';
 import ConfirmModal from './ConfirmModal';
@@ -11,46 +12,35 @@ const Summary = () => {
 	const [total, setTotal] = useState();
 	const [vat, setVat] = useState();
 	const [grandTotal, setGrandTotal] = useState();
-	const [currentOrders, setCurrentOrders] = useState(orders);
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
-		// Set current orders
-		setCurrentOrders(currentOrders);
+		// if all orders are removed, then navigate to home page
+		if (orders.length === 0) {
+			navigate('/');
+		}
 
-		// Calculate Total (before taxes)
+		// Set Total
 		setTotal(
 			new Intl.NumberFormat('en-US').format(
-				currentOrders.reduce(
-					(acc, order) => acc + order.price * order.quantity,
-					0
-				)
+				orders.reduce((acc, order) => acc + order.price * order.quantity, 0)
 			)
 		);
-		// Calculate VAT
+
+		// Set VAT
 		setVat(
 			new Intl.NumberFormat('en-US').format(
-				currentOrders.reduce(
-					(acc, order) => acc + order.price * order.quantity,
-					0
-				) * 0.05
+				orders.reduce((acc, order) => acc + order.price * order.quantity, 0) *
+					0.05
 			)
 		);
-		// Calculate grand total (include taxes)
+
+		// Set grand total
 		setGrandTotal(
-			new Intl.NumberFormat('en-US').format(
-				currentOrders.reduce(
-					(acc, order) => acc + order.price * order.quantity,
-					0
-				) *
-					0.05 +
-					50 +
-					currentOrders.reduce(
-						(acc, order) => acc + order.price * order.quantity,
-						0
-					)
-			)
+			orders.reduce((acc, order) => acc + order.price * order.quantity, 0) + 50
 		);
-	}, [currentOrders]);
+	}, [orders, navigate]);
 
 	return (
 		<>
@@ -96,9 +86,7 @@ const Summary = () => {
 					role='submit'
 				/>
 			</div>
-			{openModal && (
-				<ConfirmModal grandTotal={grandTotal} orders={currentOrders} />
-			)}
+			{openModal && <ConfirmModal grandTotal={grandTotal} orders={orders} />}
 		</>
 	);
 };

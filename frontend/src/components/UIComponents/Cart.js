@@ -19,6 +19,7 @@ const Cart = ({ setOpenCart }) => {
 
 	const handleRemoveAll = () => {
 		dispatch({ type: 'REMOVE_ALL_ORDER' });
+		setOpenCart(false);
 	};
 
 	return ReactDOM.createPortal(
