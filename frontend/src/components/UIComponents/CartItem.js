@@ -19,9 +19,9 @@ const CartItem = ({ order }) => {
 			if (prevQuantity === 1) {
 				// remove order if the quantity is reduced to 0
 				dispatch({ type: 'REMOVE_ORDER', payload: { id: order.id } });
-			} else {
-				return prevQuantity - 1;
 			}
+
+			return prevQuantity - 1;
 		});
 	};
 

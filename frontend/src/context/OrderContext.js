@@ -10,7 +10,7 @@ export const OrderContext = createContext();
 const orderReducer = (state, action) => {
 	switch (action.type) {
 		case 'ADD_ORDER': {
-			let newOrders;
+			let newOrders = [];
 			// check if there is already the same item in the cart
 			const existingOrder = state.orders.find(
 				(order) => order.id === action.payload.id
@@ -64,13 +64,13 @@ const orderReducer = (state, action) => {
 			};
 		}
 		case 'REMOVE_ORDER': {
-			const newOrder = state.orders.filter(
+			const newOrders = state.orders.filter(
 				(order) => order.id !== action.payload.id
 			);
 
 			return {
 				...state,
-				orders: [...newOrder],
+				orders: [...newOrders],
 			};
 		}
 		case 'REMOVE_ALL_ORDER':
