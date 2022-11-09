@@ -7,35 +7,35 @@ import DeliveryIcon from '../../assets/checkout/icon-cash-on-delivery.svg';
 import './Form.scss';
 
 const Form = () => {
-	const [name, setName] = useState('');
-	const [email, setEmail] = useState('');
-	const [phone, setPhone] = useState('');
-	const [address, setAddress] = useState('');
-	const [zipCode, setZipCode] = useState('');
-	const [city, setCity] = useState('');
-	const [country, setCountry] = useState('');
-	const [method, setMethod] = useState('e-Money');
-	const [eNumber, setENumber] = useState('');
-	const [ePIN, setEPIN] = useState('');
 	const { sendRequest, error, emptyFields, errorFields } = useHttpHook();
 	const { orders, dispatch } = useOrderContext();
+	const [formData, setFormData] = useState({
+		name: '',
+		email: '',
+		phone: '',
+		address: '',
+		zipCode: '',
+		city: '',
+		country: '',
+		method: 'e-Money',
+		eNumber: '',
+		ePIN: '',
+		orders,
+	});
+
+	const handleChange = (e) => {
+		const name = e.target.name;
+
+		setFormData((prevFormData) => {
+			return {
+				...prevFormData,
+				[name]: e.target.value,
+			};
+		});
+	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
-		const formData = {
-			name,
-			email,
-			phone,
-			address,
-			zipCode,
-			city,
-			country,
-			method,
-			eNumber: method === 'e-Money' ? eNumber : '',
-			ePIN: method === 'e-Money' ? ePIN : '',
-			orders,
-		};
 
 		try {
 			const data = await sendRequest(
@@ -57,16 +57,19 @@ const Form = () => {
 	};
 
 	const clearFields = () => {
-		setName('');
-		setAddress('');
-		setEmail('');
-		setPhone('');
-		setZipCode('');
-		setCity('');
-		setCountry('');
-		setMethod('e-Money');
-		setENumber('');
-		setEPIN('');
+		setFormData({
+			name: '',
+			email: '',
+			phone: '',
+			address: '',
+			zipCode: '',
+			city: '',
+			country: '',
+			method: 'e-Money',
+			eNumber: '',
+			ePIN: '',
+			orders,
+		});
 	};
 
 	return (
@@ -87,7 +90,9 @@ const Form = () => {
 				<div className='form-control'>
 					<div
 						className={`form-input ${
-							error === 'Empty Field' && emptyFields.includes('info') && !name
+							error === 'Empty Field' &&
+							emptyFields.includes('info') &&
+							!formData.name
 								? 'form-error'
 								: ''
 						}`}>
@@ -95,20 +100,20 @@ const Form = () => {
 						<input
 							type='text'
 							placeholder='Alexei Ward'
-							id='name'
-							value={name}
-							onChange={(e) => setName(e.target.value)}
+							name='name'
+							value={formData.name}
+							onChange={handleChange}
 						/>
 						{error === 'Empty Field' &&
 							emptyFields.includes('info') &&
-							!name && <span className='error-message'>{error}</span>}
+							!formData.name && <span className='error-message'>{error}</span>}
 					</div>
 					<div
 						className={`form-input ${
 							error &&
 							((emptyFields.length > 0 &&
 								emptyFields.includes('info') &&
-								!email) ||
+								!formData.email) ||
 								(errorFields.length > 0 && errorFields.includes('email')))
 								? 'form-error'
 								: ''
@@ -117,14 +122,14 @@ const Form = () => {
 						<input
 							type='email'
 							placeholder='alexei@mail.com'
-							id='email'
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
+							name='email'
+							value={formData.email}
+							onChange={handleChange}
 						/>
 						{error &&
 							((emptyFields.length > 0 &&
 								emptyFields.includes('info') &&
-								!email) ||
+								!formData.email) ||
 								(errorFields.length > 0 && errorFields.includes('email'))) && (
 								<span className='error-message'>{error}</span>
 							)}
@@ -134,7 +139,7 @@ const Form = () => {
 							error &&
 							((emptyFields.length > 0 &&
 								emptyFields.includes('info') &&
-								!phone) ||
+								!formData.phone) ||
 								(errorFields.length > 0 && errorFields.includes('phone')))
 								? 'form-error'
 								: ''
@@ -142,15 +147,15 @@ const Form = () => {
 						<label htmlFor='phone'>Phone</label>
 						<input
 							type='tel'
-							id='phone'
+							name='phone'
 							placeholder='+1 202-555-0136'
-							value={phone}
-							onChange={(e) => setPhone(e.target.value)}
+							value={formData.phone}
+							onChange={handleChange}
 						/>
 						{error &&
 							((emptyFields.length > 0 &&
 								emptyFields.includes('info') &&
-								!phone) ||
+								!formData.phone) ||
 								(errorFields.length > 0 && errorFields.includes('phone'))) && (
 								<span className='error-message'>{error}</span>
 							)}
@@ -164,7 +169,7 @@ const Form = () => {
 						className={`form-input ${
 							error === 'Empty Field' &&
 							emptyFields.includes('info') &&
-							!address
+							!formData.address
 								? 'form-error'
 								: ''
 						}`}
@@ -173,20 +178,22 @@ const Form = () => {
 						<input
 							type='text'
 							placeholder='1137 Williams Avenue'
-							id='address'
-							value={address}
-							onChange={(e) => setAddress(e.target.value)}
+							name='address'
+							value={formData.address}
+							onChange={handleChange}
 						/>
 						{error === 'Empty Field' &&
 							emptyFields.includes('info') &&
-							!address && <span className='error-message'>{error}</span>}
+							!formData.address && (
+								<span className='error-message'>{error}</span>
+							)}
 					</div>
 					<div
 						className={`form-input ${
 							error &&
 							((emptyFields.length > 0 &&
 								emptyFields.includes('info') &&
-								!zipCode) ||
+								!formData.zipCode) ||
 								(errorFields.length > 0 && errorFields.includes('zip-code')))
 								? 'form-error'
 								: ''
@@ -195,14 +202,14 @@ const Form = () => {
 						<input
 							type='text'
 							placeholder='10001'
-							id='zip-code'
-							value={zipCode}
-							onChange={(e) => setZipCode(e.target.value)}
+							name='zipCode'
+							value={formData.zipCode}
+							onChange={handleChange}
 						/>
 						{error &&
 							((emptyFields.length > 0 &&
 								emptyFields.includes('info') &&
-								!zipCode) ||
+								!formData.zipCode) ||
 								(errorFields.length > 0 &&
 									errorFields.includes('zip-code'))) && (
 								<span className='error-message'>{error}</span>
@@ -210,41 +217,45 @@ const Form = () => {
 					</div>
 					<div
 						className={`form-input ${
-							error === 'Empty Field' && emptyFields.includes('info') && !city
+							error === 'Empty Field' &&
+							emptyFields.includes('info') &&
+							!formData.city
 								? 'form-error'
 								: ''
 						}`}>
 						<label htmlFor='city'>City</label>
 						<input
 							type='text'
-							id='city'
+							name='city'
 							placeholder='New York'
-							value={city}
-							onChange={(e) => setCity(e.target.value)}
+							value={formData.city}
+							onChange={handleChange}
 						/>
 						{error === 'Empty Field' &&
 							emptyFields.includes('info') &&
-							!city && <span className='error-message'>{error}</span>}
+							!formData.city && <span className='error-message'>{error}</span>}
 					</div>
 					<div
 						className={`form-input ${
 							error === 'Empty Field' &&
 							emptyFields.includes('info') &&
-							!country
+							!formData.country
 								? 'form-error'
 								: ''
 						}`}>
 						<label htmlFor='country'>Country</label>
 						<input
 							type='text'
-							id='country'
+							name='country'
 							placeholder='United State'
-							value={country}
-							onChange={(e) => setCountry(e.target.value)}
+							value={formData.country}
+							onChange={handleChange}
 						/>
 						{error === 'Empty Field' &&
 							emptyFields.includes('info') &&
-							!country && <span className='error-message'>{error}</span>}
+							!formData.country && (
+								<span className='error-message'>{error}</span>
+							)}
 					</div>
 				</div>
 			</div>
@@ -257,70 +268,78 @@ const Form = () => {
 							<div className='flex'>
 								<input
 									type='radio'
-									id='method-1'
+									name='method'
 									value='e-Money'
-									checked={method === 'e-Money' ? true : false}
-									onChange={(e) => setMethod(e.target.value)}
+									id='method-1'
+									checked={formData.method === 'e-Money' ? true : false}
+									onChange={handleChange}
 								/>
 								<label htmlFor='method-1'>e-Money</label>
 							</div>
 							<div className='flex'>
 								<input
 									type='radio'
+									name='method'
 									id='method-2'
 									value='Cash on Delivery'
-									checked={method === 'Cash on Delivery' ? true : false}
-									onChange={(e) => setMethod(e.target.value)}
+									checked={
+										formData.method === 'Cash on Delivery' ? true : false
+									}
+									onChange={handleChange}
 								/>
 								<label htmlFor='method-2'>Cash on Delivery</label>
 							</div>
 						</div>
 					</div>
-					{method === 'e-Money' && (
+					{formData.method === 'e-Money' && (
 						<>
 							<div
 								className={`form-input ${
 									error === 'Empty Field' &&
 									emptyFields.includes('method') &&
-									!eNumber
+									!formData.eNumber
 										? 'form-error'
 										: ''
 								}`}>
 								<label htmlFor='eMoneyNumber'>e-Money Number</label>
 								<input
 									type='text'
-									id='eMoneyNumber'
+									name='eNumber'
 									placeholder='238521993'
-									value={eNumber}
-									onChange={(e) => setENumber(e.target.value)}
+									value={formData.eNumber}
+									onChange={handleChange}
 								/>
 								{error === 'Empty Field' &&
 									emptyFields.includes('method') &&
-									!eNumber && <span className='error-message'>{error}</span>}
+									!formData.eNumber && (
+										<span className='error-message'>{error}</span>
+									)}
 							</div>
 							<div
 								className={`form-input ${
 									error === 'Empty Field' &&
 									emptyFields.includes('method') &&
-									!ePIN
+									!formData.ePIN
 										? 'form-error'
 										: ''
 								}`}>
 								<label htmlFor='city'>e-Money PIN</label>
 								<input
 									type='text'
-									id='country'
+									name='ePIN'
 									placeholder='6891'
-									value={ePIN}
-									onChange={(e) => setEPIN(e.target.value)}
+									value={formData.ePIN}
+									onChange={handleChange}
 								/>
 								{error === 'Empty Field' &&
 									emptyFields.includes('method') &&
-									!ePIN && <span className='error-message'>{error}</span>}
+									!formData.ePIN && (
+										<span className='error-message'>{error}</span>
+									)}
 							</div>
 						</>
 					)}
-					{method === 'Cash on Delivery' && (
+					{formData.method === 'Cash on Delivery' && (
 						<div className='form-message'>
 							<div>
 								<img src={DeliveryIcon} alt='' />
