@@ -63,6 +63,16 @@ const orderReducer = (state, action) => {
 				orders: [...newOrders],
 			};
 		}
+		case 'REMOVE_ORDER': {
+			const newOrder = state.orders.filter(
+				(order) => order.id !== action.payload.id
+			);
+
+			return {
+				...state,
+				orders: [...newOrder],
+			};
+		}
 		case 'REMOVE_ALL_ORDER':
 			localStorage.removeItem('order');
 			return {
