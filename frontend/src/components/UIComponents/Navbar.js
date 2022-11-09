@@ -1,6 +1,7 @@
 import { useLayoutEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useOrderContext } from '../../hooks/useOrderContext';
+import { useWindowSize } from '../../hooks/useWindowSize';
 // Icons & Images
 import Logo from '../../assets/shared/desktop/logo.svg';
 import CartIcon from '../../assets/shared/desktop/icon-cart.svg';
@@ -16,11 +17,16 @@ function Navbar() {
 	const [openMenu, setOpenMenu] = useState(false);
 	const [openCart, setOpenCart] = useState(false);
 	const { orders } = useOrderContext();
+	const { width } = useWindowSize();
 	const location = useLocation();
 
 	useLayoutEffect(() => {
-		document.body.style.overflow = openMenu || openCart ? 'hidden' : '';
-	}, [openMenu, openCart]);
+		if (width > 600) {
+			document.body.style.overflow = openMenu || openCart ? 'hidden' : '';
+		} else {
+			document.body.style.overflow = openMenu ? 'hidden' : '';
+		}
+	}, [openMenu, openCart, width]);
 
 	const handleMenuClick = () => {
 		window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
