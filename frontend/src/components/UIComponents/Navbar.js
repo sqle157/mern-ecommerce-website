@@ -109,8 +109,8 @@ function Navbar() {
 							onClick={handleCartClick}
 						/>
 						{orders.length > 0 && (
-							<div className='cart-basket' data-count={orders.length}>
-								{orders.length}
+							<div className='cart-basket'>
+								{orders.reduce((acc, order) => acc + order.quantity, 0)}
 							</div>
 						)}
 					</div>
