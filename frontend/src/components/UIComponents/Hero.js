@@ -4,10 +4,12 @@ import Button from './Button';
 // CSS
 import './Hero.scss';
 
+// render based on params and location
 function Hero() {
 	const params = useParams();
 	const location = useLocation();
 
+	// if there's a category param
 	if (params.category) {
 		return (
 			<div className='header__hero header__hero--center'>
@@ -16,10 +18,12 @@ function Hero() {
 		);
 	}
 
+	// if there's a product slug param or location === '/checkout'
 	if (params.slug || location.pathname === '/checkout') {
 		return <></>;
 	}
 
+	// Default render
 	return (
 		<div className='header__hero'>
 			<p className='overline'>New Product</p>

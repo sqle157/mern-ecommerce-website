@@ -20,6 +20,7 @@ function Product() {
 	const { slug } = useParams();
 
 	useEffect(() => {
+		// fetch the product information
 		const fetchProduct = async () => {
 			try {
 				const data = await sendRequest(`/api/products/${slug}`);

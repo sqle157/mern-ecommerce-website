@@ -10,14 +10,17 @@ function ProductItem({ product, index, productPage }) {
 	const [productQuantity, setProductQuantity] = useState(1);
 	const { dispatch } = useOrderContext();
 
+	// Handle reduce product quantity
 	const handleMinusClick = () => {
 		setProductQuantity((quantity) => (quantity !== 1 ? quantity - 1 : 1));
 	};
 
+	// Handle increase product quantity
 	const handlePlusClick = () => {
 		setProductQuantity((quantity) => quantity + 1);
 	};
 
+	// Handle add to cart
 	const handleAddToCart = () => {
 		const productItem = {
 			id: product._id,
@@ -32,6 +35,7 @@ function ProductItem({ product, index, productPage }) {
 		dispatch({ type: 'ADD_ORDER', payload: productItem });
 	};
 
+	// if the current page is productPage
 	if (productPage) {
 		return (
 			<div className='product-item flex'>
@@ -71,6 +75,7 @@ function ProductItem({ product, index, productPage }) {
 		);
 	}
 
+	// Default render
 	return (
 		<div className={`product-item flex ${index === 1 ? 'flex-reverse' : ''}`}>
 			<div>

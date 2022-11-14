@@ -8,6 +8,7 @@ import SpeakersCategory from '../../assets/shared/desktop/image-category-thumbna
 import './ProductCategories.scss';
 
 function ProductCategories({ setOpenMenu, mobileMenu }) {
+	// handle link click event
 	const handleLinkClick = () => {
 		mobileMenu && setOpenMenu(false);
 		window.scrollTo({ top: 0, left: 0, behavior: 'instant' });

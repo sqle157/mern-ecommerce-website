@@ -11,14 +11,17 @@ const ConfirmModal = ({ grandTotal, orders }) => {
 	const { dispatch } = useOrderContext();
 	const [finalOrders, setFinalOrders] = useState([{ ...orders[0] }]);
 
+	// handle see more event
 	const handleSeeMoreOrder = () => {
 		setFinalOrders(orders);
 	};
 
+	// handle see less event
 	const handleSeeLessOrder = () => {
 		setFinalOrders([{ ...orders[0] }]);
 	};
 
+	// handle back to home event
 	const handleHomeClick = () => {
 		dispatch({ type: 'REMOVE_ALL_ORDER' });
 		dispatch({ type: 'TOGGLE_MODAL' });

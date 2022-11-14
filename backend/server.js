@@ -31,9 +31,11 @@ if (process.env.NODE_ENV === 'production') {
 		res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
 	);
 } else {
+	// development mode
 	app.get('/', (req, res) => {
 		res.status(200).json({ message: 'Welcome to the Ecommerce App API' });
 	});
 }
 
+// Listen to the app
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

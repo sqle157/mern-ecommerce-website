@@ -8,10 +8,12 @@ import './ProductsSection.scss';
 function Products({ category }) {
 	const { products } = useProductContext();
 
+	// Filter the products based on the category
 	const productsList = products?.filter(
 		(product) => product.category === category
 	);
 
+	// if there's no product
 	if (productsList?.length === 0) {
 		return (
 			<div className='error'>

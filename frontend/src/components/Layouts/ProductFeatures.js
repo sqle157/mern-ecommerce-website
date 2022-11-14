@@ -5,6 +5,7 @@ import './ProductFeatures.scss';
 function ProductFeatures() {
 	const { product } = useProductContext();
 
+	// reformat the feature string
 	const featuresString = product?.features.replace(/\\n/g, '\n');
 
 	return (

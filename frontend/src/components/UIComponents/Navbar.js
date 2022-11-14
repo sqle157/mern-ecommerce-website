@@ -20,6 +20,7 @@ function Navbar() {
 	const { width } = useWindowSize();
 	const location = useLocation();
 
+	// LayoutEffect to keep track of the width of the screen and style accordingly
 	useLayoutEffect(() => {
 		if (width > 600) {
 			document.body.style.overflow = openMenu || openCart ? 'hidden' : '';
@@ -28,17 +29,20 @@ function Navbar() {
 		}
 	}, [openMenu, openCart, width]);
 
+	// Handle menu event
 	const handleMenuClick = () => {
 		window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 		setOpenCart(false);
 		setOpenMenu((prevState) => !prevState);
 	};
 
+	// Handle logo event
 	const handleLogoClick = () => {
 		setOpenCart(false);
 		setOpenMenu(false);
 	};
 
+	// Handle cart event
 	const handleCartClick = () => {
 		setOpenMenu(false);
 		setOpenCart((prevState) => !prevState);
