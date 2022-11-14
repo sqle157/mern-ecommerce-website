@@ -23,6 +23,7 @@ const Form = () => {
 		orders,
 	});
 
+	// handle input change
 	const handleChange = (e) => {
 		const name = e.target.name;
 
@@ -34,6 +35,7 @@ const Form = () => {
 		});
 	};
 
+	// handle form submit
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
@@ -55,6 +57,7 @@ const Form = () => {
 		} catch (error) {}
 	};
 
+	// helper function to clear the fields
 	const clearFields = () => {
 		setFormData({
 			name: '',

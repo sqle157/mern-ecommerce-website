@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Button.scss';
 
 const Button = ({ className, text, to, onClick, form, role }) => {
+	// if Button is a Link
 	if (to) {
 		return (
 			<Link className={className} to={to} onClick={onClick}>
@@ -11,6 +12,7 @@ const Button = ({ className, text, to, onClick, form, role }) => {
 		);
 	}
 
+	// Default button
 	return (
 		<button className={className} onClick={onClick} form={form} role={role}>
 			{text}

@@ -10,6 +10,7 @@ function ProductSection() {
 
 	const navigate = useNavigate();
 
+	// handle go back click
 	const handleClick = () => {
 		navigate(-1);
 	};

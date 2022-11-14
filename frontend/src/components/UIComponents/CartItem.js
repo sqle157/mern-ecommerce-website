@@ -9,11 +9,13 @@ const CartItem = ({ order }) => {
 	const [quantity, setQuantity] = useState(order.quantity);
 	const { dispatch } = useOrderContext();
 
+	// Update the order everytime the quantity change
 	useEffect(() => {
 		dispatch({ type: 'UPDATE_ORDER', payload: { id: order.id, quantity } });
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [quantity]);
 
+	// Handle reduce product quantity event
 	const handleReduceQuantiy = () => {
 		setQuantity((prevQuantity) => {
 			if (prevQuantity === 1) {
@@ -25,6 +27,7 @@ const CartItem = ({ order }) => {
 		});
 	};
 
+	// Handle add product quantity event
 	const handleAddQuantity = () => {
 		setQuantity((prevQuantity) => prevQuantity + 1);
 	};

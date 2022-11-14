@@ -7,6 +7,7 @@ import './MobileMenu.scss';
 const MobileMenu = ({ setOpenMenu }) => {
 	const ref = useRef();
 
+	// Handle close mobile menu when click on overlay
 	const handleMobileMenuClick = (e) => {
 		if (e.target === ref.current) {
 			setOpenMenu(false);

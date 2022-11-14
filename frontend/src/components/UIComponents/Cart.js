@@ -11,17 +11,20 @@ const Cart = ({ setOpenCart }) => {
 	const { orders, dispatch } = useOrderContext();
 	const ref = useRef();
 
+	// Handle click outside of cart
 	const handleOverlayClick = (e) => {
 		if (e.target === ref.current || e.target.classList.contains('container')) {
 			setOpenCart(false);
 		}
 	};
 
+	// Handle remove all orders event
 	const handleRemoveAll = () => {
 		dispatch({ type: 'REMOVE_ALL_ORDER' });
 		setOpenCart(false);
 	};
 
+	// render the component at the div with cart id
 	return ReactDOM.createPortal(
 		<div className='overlay' ref={ref} onClick={handleOverlayClick}>
 			<div className='container'>

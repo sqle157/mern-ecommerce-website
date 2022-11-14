@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 
+// Custom hook to handle fetch request
 export const useHttpHook = () => {
 	const [error, setError] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
@@ -8,6 +9,7 @@ export const useHttpHook = () => {
 
 	const activeHttpRequest = useRef([]);
 
+	// Handle fetch request
 	const sendRequest = useCallback(
 		async (url, method = 'GET', body = null, headers = {}) => {
 			setIsLoading(true);
@@ -21,6 +23,7 @@ export const useHttpHook = () => {
 			activeHttpRequest.current.push(httpAbortController);
 
 			try {
+				// Fetch the response
 				const response = await fetch(url, {
 					method,
 					body,
@@ -30,15 +33,18 @@ export const useHttpHook = () => {
 
 				const data = await response.json();
 
+				// Filter out the signal from the current signals
 				activeHttpRequest.current = activeHttpRequest.current.filter(
 					(reqCtrl) => reqCtrl !== httpAbortController
 				);
 
 				if (!response.ok) {
+					// If there's empty fields list
 					if (data.emptyFields) {
 						setEmptyFields(data.emptyFields);
 					}
 
+					// If there's error fields list
 					if (data.errorFields) {
 						setErrorFields(data.errorFields);
 					}
@@ -56,6 +62,7 @@ export const useHttpHook = () => {
 					error.message !== 'The operation was aborted. ' &&
 					error.message !== 'Fetch is aborted'
 				) {
+					// Catch & set the error
 					setError(error.message);
 					setIsLoading(false);
 					throw error;
@@ -65,6 +72,7 @@ export const useHttpHook = () => {
 		[]
 	);
 
+	// Cleanup function everytime the component re-renders
 	useEffect(() => {
 		return () => {
 			activeHttpRequest.current.forEach((abortCtrl) => abortCtrl.abort());
