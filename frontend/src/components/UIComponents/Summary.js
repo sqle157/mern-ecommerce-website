@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useOrderContext } from '../../hooks/useOrderContext';
 import { useNavigate } from 'react-router-dom';
 // Components
@@ -9,9 +9,27 @@ import './Summary.scss';
 
 const Summary = () => {
 	const { orders, openModal } = useOrderContext();
-	const [total, setTotal] = useState();
-	const [vat, setVat] = useState();
-	const [grandTotal, setGrandTotal] = useState();
+	// Calculate total - VAT - grandTotal based on the orders
+	const total = useMemo(
+		() =>
+			new Intl.NumberFormat('en-US').format(
+				orders.reduce((acc, order) => acc + order.price * order.quantity, 0)
+			),
+		[orders]
+	);
+	const vat = useMemo(
+		() =>
+			new Intl.NumberFormat('en-US').format(
+				orders.reduce((acc, order) => acc + order.price * order.quantity, 0) *
+					0.05
+			),
+		[orders]
+	);
+	const grandTotal = useMemo(
+		() =>
+			orders.reduce((acc, order) => acc + order.price * order.quantity, 0) + 50,
+		[orders]
+	);
 
 	const navigate = useNavigate();
 
@@ -20,26 +38,6 @@ const Summary = () => {
 		if (orders.length === 0) {
 			navigate('/');
 		}
-
-		// Set Total
-		setTotal(
-			new Intl.NumberFormat('en-US').format(
-				orders.reduce((acc, order) => acc + order.price * order.quantity, 0)
-			)
-		);
-
-		// Set VAT
-		setVat(
-			new Intl.NumberFormat('en-US').format(
-				orders.reduce((acc, order) => acc + order.price * order.quantity, 0) *
-					0.05
-			)
-		);
-
-		// Set grand total
-		setGrandTotal(
-			orders.reduce((acc, order) => acc + order.price * order.quantity, 0) + 50
-		);
 	}, [orders, navigate]);
 
 	return (

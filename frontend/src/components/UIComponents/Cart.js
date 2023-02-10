@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { useOrderContext } from '../../hooks/useOrderContext';
+import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 // Components & Icons
 import CartItem from './CartItem';
 import Button from './Button';
@@ -10,13 +11,7 @@ import './Cart.scss';
 const Cart = ({ setOpenCart }) => {
 	const { orders, dispatch } = useOrderContext();
 	const ref = useRef();
-
-	// Handle click outside of cart
-	const handleOverlayClick = (e) => {
-		if (e.target === ref.current || e.target.classList.contains('container')) {
-			setOpenCart(false);
-		}
-	};
+	useOnClickOutside(ref, () => setOpenCart(false));
 
 	// Handle remove all orders event
 	const handleRemoveAll = () => {
@@ -26,9 +21,9 @@ const Cart = ({ setOpenCart }) => {
 
 	// render the component at the div with cart id
 	return ReactDOM.createPortal(
-		<div className='overlay' ref={ref} onClick={handleOverlayClick}>
+		<div className='overlay'>
 			<div className='container'>
-				<div className='cart'>
+				<div className='cart' ref={ref}>
 					{orders.length === 0 ? (
 						<h6 className='opacity-5'>There is no order in the cart</h6>
 					) : (
