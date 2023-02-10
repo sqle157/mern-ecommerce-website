@@ -1,6 +1,7 @@
 .product {
 	&-item {
 		--gap: 7.8125rem;
+		min-width: 0; // fix grid blowout
 
 		> * {
 			flex: 1;
