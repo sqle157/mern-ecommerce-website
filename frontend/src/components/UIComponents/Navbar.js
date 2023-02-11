@@ -56,12 +56,13 @@ function Navbar() {
 			{openMenu && <MobileMenu setOpenMenu={setOpenMenu} />}
 			<div className='container'>
 				<div className='flex header__navbar'>
-					<img
-						className='menu-burger'
-						src={BurgerIcon}
-						alt=''
-						onClick={handleMenuClick}
-					/>
+					<button
+						type='button'
+						aria-label='mobile menu'
+						aria-expanded={openMenu}
+						onClick={handleMenuClick}>
+						<img className='menu-burger' src={BurgerIcon} alt='' />
+					</button>
 					<Link to='/' onClick={handleLogoClick}>
 						<img src={Logo} alt='logo' />
 					</Link>
@@ -106,15 +107,13 @@ function Navbar() {
 						</ul>
 					</nav>
 					<div className='icon-wrapper'>
-						<img
-							className='cart-icon'
-							src={CartIcon}
-							alt=''
-							onClick={handleCartClick}
-						/>
+						<button type='button' aria-label='cart' onClick={handleCartClick}>
+							<img className='cart-icon' src={CartIcon} alt='' />
+						</button>
+
 						{orders.length > 0 && (
-							<div className='cart-basket'>
-								{orders.reduce((acc, order) => acc + order.quantity, 0)}
+							<div className='cart-basket' id='cart'>
+								<p>{orders.reduce((acc, order) => acc + order.quantity, 0)}</p>
 							</div>
 						)}
 					</div>

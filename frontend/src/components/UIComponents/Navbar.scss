@@ -97,10 +97,14 @@
 		height: 16px;
 		display: grid;
 		place-items: center;
-		font-size: 0.6rem;
-		font-weight: 700;
-		color: #fff;
 		background-color: var(--clr-primary-400);
 		border-radius: 50%;
+
+		p {
+			font-size: 0.6rem;
+			font-weight: 700;
+			color: #fff;
+			line-height: 16px;
+		}
 	}
 }
