@@ -60,8 +60,9 @@ function Navbar() {
 						type='button'
 						aria-label='mobile menu'
 						aria-expanded={openMenu}
-						onClick={handleMenuClick}>
-						<img className='menu-burger' src={BurgerIcon} alt='' />
+						onClick={handleMenuClick}
+						className='menu-burger'>
+						<img src={BurgerIcon} alt='' />
 					</button>
 					<Link to='/' onClick={handleLogoClick}>
 						<img src={Logo} alt='logo' />
