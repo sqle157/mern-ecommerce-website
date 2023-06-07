@@ -2,7 +2,7 @@
 
 ![Preview for the Ecommerce Website](./preview.png)
 
-An Ecommerce Website build with MERN stack.
+An Ecommerce Website that I built using the MERN stack. It's a fun and hands-on way for me to explore different technologies. I used MongoDB for the database, Express.js for the backend, React.js for the frontend, and Node.js to tie everything together. It's been a great learning experience.
 
 ## Features
 
